@@ -53,7 +53,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md py-3 shadow-md' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md py-2 md:py-3 shadow-md' : 'bg-transparent py-3 md:py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2 group cursor-pointer">
           <motion.div 
@@ -143,7 +143,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.9]"
+          className="text-5xl md:text-9xl font-black text-white mb-6 md:mb-8 tracking-tighter leading-[0.9]"
         >
           TU BARBERO <br /> 
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 italic font-serif">de Confianza.</span>
@@ -200,7 +200,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicios" className="py-32 bg-white">
+    <section id="servicios" className="py-16 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
           <motion.div 
@@ -262,7 +262,7 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="galeria" className="py-32 bg-slate-950 overflow-hidden">
+    <section id="galeria" className="py-16 md:py-32 bg-slate-950 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -273,7 +273,8 @@ const Gallery = () => {
         </motion.h2>
         <div className="w-24 h-1 bg-amber-600 mx-auto rounded-full mb-16" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Desktop: grid | Mobile: horizontal scroll */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {images.map((img, i) => (
             <motion.div
               key={i}
@@ -283,11 +284,7 @@ const Gallery = () => {
               transition={{ delay: i * 0.15 }}
               className="group relative h-[450px] rounded-3xl overflow-hidden cursor-pointer"
             >
-              <img 
-                src={img.url} 
-                alt="Trabajo realizado" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
+              <img src={img.url} alt="Trabajo realizado" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent p-8 flex flex-col justify-end text-left translate-y-4 group-hover:translate-y-0 transition-transform">
                 <span className="text-amber-500 font-black text-xs tracking-widest mb-2">{img.tag}</span>
                 <p className="text-white font-bold text-xl">Estilo Personalizado</p>
@@ -295,6 +292,19 @@ const Gallery = () => {
             </motion.div>
           ))}
         </div>
+        {/* Mobile: horizontal swipe gallery */}
+        <div className="sm:hidden flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory px-2 -mx-2 pb-4">
+          {images.map((img, i) => (
+            <div key={i} className="snap-center shrink-0 w-[280px] h-[380px] rounded-2xl overflow-hidden relative">
+              <img src={img.url} alt="Trabajo realizado" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent p-6 flex flex-col justify-end">
+                <span className="text-amber-500 font-black text-xs tracking-widest mb-1">{img.tag}</span>
+                <p className="text-white font-bold">Estilo Personalizado</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="sm:hidden text-center text-white/30 text-xs mt-4">Desliza para ver más →</p>
       </div>
     </section>
   );
@@ -312,7 +322,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-32 bg-white">
+    <section className="py-16 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
           <motion.div
@@ -374,7 +384,7 @@ const BooksySection = () => {
   const booksyUrl = "https://booksy.com/es-es/167979_barberia-y-peluqueria-caballero-y-ninos-angel-huerta_barberia_57248_playa-de-almarda"; 
 
   return (
-    <section id="reservar" className="py-32 bg-slate-50 relative overflow-hidden">
+    <section id="reservar" className="py-16 md:py-32 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="bg-slate-900 rounded-[3rem] overflow-hidden shadow-2xl relative">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-amber-600/10 skew-x-12 translate-x-1/4 pointer-events-none" />
@@ -450,7 +460,7 @@ const BooksySection = () => {
 // --- Sección de Contacto ---
 const ContactSection = () => {
   return (
-    <section id="contacto" className="py-32 bg-white">
+    <section id="contacto" className="py-16 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div
@@ -571,7 +581,7 @@ const CookieBanner = () => {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
-        className="fixed bottom-24 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50"
+        className="fixed bottom-28 md:bottom-24 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50"
       >
         <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-6">
           <div className="flex items-start gap-3 mb-4">
@@ -595,6 +605,59 @@ const CookieBanner = () => {
   );
 };
 
+// --- Mobile Bottom Tab Bar ---
+const MobileTabBar = () => {
+  const [active, setActive] = useState('inicio');
+
+  useEffect(() => {
+    const sections = ['inicio', 'servicios', 'galeria', 'reservar', 'contacto'];
+    const handleScroll = () => {
+      for (const id of [...sections].reverse()) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < 200) { setActive(id); break; }
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const tabs = [
+    { id: 'inicio', label: 'Inicio', icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+    )},
+    { id: 'servicios', label: 'Servicios', icon: <ScissorsBold width={24} height={24} /> },
+    { id: 'reservar', label: 'Reservar', icon: (
+      <div className="w-14 h-14 -mt-7 bg-amber-600 rounded-full flex items-center justify-center shadow-lg shadow-amber-600/30 text-white">
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+      </div>
+    ), special: true },
+    { id: 'galeria', label: 'Galería', icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>
+    )},
+    { id: 'contacto', label: 'Contacto', icon: <MapPointBold width={24} height={24} /> },
+  ];
+
+  return (
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-slate-100 safe-bottom">
+      <div className="flex items-end justify-around px-2 py-2">
+        {tabs.map(tab => (
+          <a
+            key={tab.id}
+            href={`#${tab.id}`}
+            className={`flex flex-col items-center gap-0.5 py-1 px-3 transition-colors ${
+              tab.special ? '' : active === tab.id ? 'text-amber-600' : 'text-slate-400'
+            }`}
+            onClick={() => setActive(tab.id)}
+          >
+            {tab.icon}
+            {!tab.special && <span className="text-[10px] font-semibold">{tab.label}</span>}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // --- WhatsApp Floating Button ---
 const WhatsAppButton = () => (
   <motion.a
@@ -602,7 +665,7 @@ const WhatsAppButton = () => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Contactar por WhatsApp"
-    className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform"
+    className="fixed bottom-24 md:bottom-6 right-6 z-40 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform"
     initial={{ scale: 0, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ delay: 2, type: "spring", stiffness: 200 }}
@@ -624,6 +687,7 @@ export default function App() {
       <Footer />
       <WhatsAppButton />
       <CookieBanner />
+      <MobileTabBar />
     </div>
   );
 }

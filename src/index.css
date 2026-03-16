@@ -6,3 +6,19 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+
+/* Safe areas for notch/home indicator */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+  .safe-top { padding-top: env(safe-area-inset-top); }
+}
+
+/* Hide scrollbar on horizontal scroll */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Bottom tab bar - mobile only */
+@media (max-width: 767px) {
+  body { padding-bottom: 80px; }
+  .tab-active { color: #d97706; }
+}
