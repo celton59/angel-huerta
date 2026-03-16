@@ -63,7 +63,7 @@ const Navbar = () => {
             <ScissorsBold className="text-white" width={20} height={20} />
           </motion.div>
           <span className={`text-xl font-black tracking-tighter ${scrolled ? 'text-slate-900' : 'text-white'}`}>
-            ELEGANCE
+            ÁNGEL HUERTA
           </span>
         </div>
 
@@ -122,7 +122,7 @@ const Hero = () => {
           initial={{ scale: 1.2, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.4 }}
           transition={{ duration: 2, ease: "easeOut" }}
-          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=2000" 
+          src="/img/hero-bg.jpg" 
           alt="Interior de la Barbería" 
           className="w-full h-full object-cover"
         />
@@ -136,7 +136,7 @@ const Hero = () => {
           transition={{ delay: 0.5 }}
           className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-500 px-4 py-1 rounded-full text-xs font-black mb-8 tracking-[0.2em]"
         >
-          <StarFallBold width={14} height={14} /> EXCELENCIA DESDE 2015
+          <StarFallBold width={14} height={14} /> MÁS DE 40 AÑOS DE OFICIO
         </motion.div>
         
         <motion.h1 
@@ -145,8 +145,8 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="text-6xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.9]"
         >
-          EL ARTE DE <br /> 
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 italic font-serif">ser un Caballero.</span>
+          TU BARBERO <br /> 
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 italic font-serif">de Confianza.</span>
         </motion.h1>
         
         <motion.p 
@@ -155,7 +155,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1.2 }}
           className="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed"
         >
-          Cortes de precisión, rituales de afeitado clásico y el mejor ambiente para tu cuidado personal.
+          Cortes de precisión, afeitado clásico a navaja y el trato cercano de toda la vida. Puerto de Sagunto.
         </motion.p>
         
         <motion.div 
@@ -193,9 +193,9 @@ const Hero = () => {
 // --- Servicios ---
 const Services = () => {
   const services = [
-    { title: "Corte Elegance", price: "25€", Icon: ScissorsBold, desc: "Lavado terapéutico, corte a medida y asesoramiento de imagen." },
-    { title: "Ritual de Barba", price: "18€", Icon: StarsBold, desc: "Afeitado tradicional con navaja, toalla caliente y aceites premium." },
-    { title: "Experiencia Total", price: "40€", Icon: StarBold, desc: "Corte, barba y tratamiento facial revitalizante. El pack completo." }
+    { title: "Corte Clásico", price: "15€", Icon: ScissorsBold, desc: "Corte a tijera o máquina adaptado a tu estilo. Incluye lavado y acabado perfecto." },
+    { title: "Afeitado Clásico", price: "10€", Icon: StarsBold, desc: "Afeitado tradicional a navaja con toalla caliente y aftershave. Barbería de verdad." },
+    { title: "Corte + Barba", price: "18€", Icon: StarBold, desc: "Corte completo más arreglo de barba en una sola sesión. Entra, relájate, sal nuevo." }
   ];
 
   return (
@@ -209,7 +209,7 @@ const Services = () => {
             className="max-w-xl"
           >
             <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">Servicios <br/>Exclusivos</h2>
-            <p className="text-slate-500 text-lg border-l-4 border-amber-600 pl-6">Elevamos los estándares de la peluquería masculina tradicional.</p>
+            <p className="text-slate-500 text-lg border-l-4 border-amber-600 pl-6">Más de 40 años perfeccionando cada corte, cada navajado, cada detalle.</p>
           </motion.div>
           <div className="hidden md:block text-slate-300 font-black text-9xl select-none opacity-20 translate-y-8">
             01
@@ -254,10 +254,10 @@ const Services = () => {
 // --- Galería ---
 const Gallery = () => {
   const images = [
-    { url: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&q=80&w=600", tag: "DEGRADADO" },
-    { url: "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&q=80&w=600", tag: "BARBA" },
-    { url: "https://images.unsplash.com/photo-1621605815844-88846c4f8999?auto=format&fit=crop&q=80&w=600", tag: "CLÁSICO" },
-    { url: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=600", tag: "ESTILO" }
+    { url: "/img/gallery-1.jpg", tag: "DEGRADADO" },
+    { url: "/img/gallery-2.jpg", tag: "BARBA" },
+    { url: "/img/gallery-3.jpg", tag: "CLÁSICO" },
+    { url: "/img/gallery-4.jpg", tag: "ESTILO" }
   ];
 
   return (
@@ -388,7 +388,7 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter">Visítanos en <br/><span className="text-amber-600 underline decoration-slate-900">el Estudio.</span></h2>
+            <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter">Visítanos en <br/><span className="text-amber-600 underline decoration-slate-900">Puerto de Sagunto.</span></h2>
             
             <div className="grid sm:grid-cols-2 gap-6 mt-12">
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
@@ -396,7 +396,7 @@ const ContactSection = () => {
                   <MapPointBold width={24} height={24} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Ubicación</h4>
-                <p className="text-slate-600 font-medium">Calle del Estilo 45, <br/>28001 Madrid, España</p>
+                <p className="text-slate-600 font-medium">C. Sant Vicent, 31<br/>46520 Port de Sagunt, Valencia</p>
               </div>
 
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
@@ -405,9 +405,9 @@ const ContactSection = () => {
                 </div>
                 <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Horario</h4>
                 <ul className="text-slate-600 font-medium text-sm space-y-1">
-                  <li>Lun - Vie: 10:00 - 20:30</li>
-                  <li>Sábados: 09:00 - 14:00</li>
-                  <li className="text-slate-400">Dom: Cerrado</li>
+                  <li>Mar - Vie: 10:00–14:00 / 17:00–20:00</li>
+                  <li>Sábados: 10:00–14:00</li>
+                  <li className="text-slate-400">Lun y Dom: Cerrado</li>
                 </ul>
               </div>
 
@@ -416,7 +416,7 @@ const ContactSection = () => {
                   <PhoneBold width={24} height={24} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Llámanos</h4>
-                <p className="text-slate-600 font-bold text-lg">+34 912 345 678</p>
+                <p className="text-slate-600 font-bold text-lg">656 40 90 27</p>
               </div>
 
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
@@ -424,7 +424,7 @@ const ContactSection = () => {
                   <LetterBold width={24} height={24} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Email</h4>
-                <p className="text-slate-600 font-medium text-sm">contacto@elegance.com</p>
+                <p className="text-slate-600 font-medium text-sm">WhatsApp: 656 40 90 27</p>
               </div>
             </div>
           </motion.div>
@@ -436,7 +436,7 @@ const ContactSection = () => {
             className="w-full h-[500px] lg:h-full min-h-[450px] rounded-[3rem] overflow-hidden border-8 border-slate-50 shadow-2xl bg-slate-100"
           >
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.284201202!2d-3.6934563!3d40.4243572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422899dc90366b%3A0xce4ba13140443ff!2sCalle%20de%20Jorge%20Juan%2C%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079!2d-0.2148211!3d39.6644058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6016102c78656d%3A0xf828d336b4847bc7!2sPeluquer%C3%ADa%20Barber%C3%ADa%20Caballeros%20Y%20Ni%C3%B1os%20%C3%81ngel%20Huerta!5e0!3m2!1ses!2ses!4v1" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
@@ -459,19 +459,19 @@ const Footer = () => (
       <div>
         <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
           <ScissorsBold className="text-amber-500" width={32} height={32} />
-          <span className="text-3xl font-black tracking-tighter">ELEGANCE</span>
+          <span className="text-3xl font-black tracking-tighter">ÁNGEL HUERTA</span>
         </div>
-        <p className="text-slate-500 max-w-sm">Elevando el estándar de la barbería clásica. Tu estilo es nuestra firma.</p>
+        <p className="text-slate-500 max-w-sm">Barbería profesional en Puerto de Sagunto. Tu estilo, nuestra pasión desde hace más de 40 años.</p>
       </div>
       <div className="flex flex-col items-center md:items-end gap-6">
         <div className="flex items-center gap-2 text-slate-500 text-xs font-bold tracking-widest uppercase">
             <MapPointBold width={14} height={14} className="text-amber-500" />
-            <span>MADRID, ESPAÑA</span>
+            <span>PUERTO DE SAGUNTO, VALENCIA</span>
         </div>
       </div>
     </div>
     <div className="text-center text-slate-600 text-[10px] font-black tracking-[0.4em] uppercase">
-      © 2024 ELEGANCE BARBER STUDIO.
+      © 2024 ÁNGEL HUERTA BARBER STUDIO.
     </div>
   </footer>
 );
