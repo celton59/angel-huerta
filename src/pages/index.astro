@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Ángel Huerta — Peluquería" description="Peluquería profesional. Cortes, coloración, tratamientos y estilo. Pide tu cita.">
+  
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1a1a1a]">
+    <!-- Background image placeholder -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#2d2926] to-[#1a1a1a] opacity-90"></div>
+    <div class="absolute inset-0 bg-[url('/hero-pattern.svg')] opacity-5"></div>
+    
+    <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+      <p class="text-[#c9a96e] tracking-[0.3em] uppercase text-sm font-medium mb-6 animate-fade-in">Peluquería Profesional</p>
+      <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-tight mb-8">
+        Ángel<br/>Huerta
+      </h1>
+      <p class="text-white/70 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
+        Estilo, confianza y cuidado personal. Tu mejor versión empieza aquí.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#cita" class="bg-[#c9a96e] text-[#1a1a1a] px-8 py-4 rounded-full font-semibold text-sm tracking-wide uppercase hover:bg-[#d4b87a] transition-all duration-300 hover:scale-105">
+          Pedir Cita
+        </a>
+        <a href="#servicios" class="border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-sm tracking-wide uppercase hover:bg-white/10 transition-all duration-300">
+          Ver Servicios
+        </a>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="py-24 px-6 bg-[var(--color-bg)]">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#c9a96e] tracking-[0.3em] uppercase text-xs font-medium text-center mb-4">Servicios</p>
+      <h2 class="font-display text-4xl md:text-5xl text-center text-[var(--color-primary)] mb-16">Lo que hacemos</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { icon: '✂️', title: 'Corte', desc: 'Cortes personalizados que se adaptan a tu estilo y personalidad.' },
+          { icon: '🎨', title: 'Coloración', desc: 'Técnicas de color, mechas, balayage y tintes naturales.' },
+          { icon: '💆', title: 'Tratamientos', desc: 'Keratina, hidratación profunda y cuidado capilar.' },
+          { icon: '🧔', title: 'Barbería', desc: 'Afeitado clásico, perfilado de barba y cuidado masculino.' },
+          { icon: '👰', title: 'Eventos', desc: 'Peinados para bodas, comuniones y ocasiones especiales.' },
+          { icon: '💎', title: 'Asesoría', desc: 'Te ayudamos a encontrar el look que mejor te define.' },
+        ].map(({ icon, title, desc }) => (
+          <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+            <span class="text-3xl mb-4 block">{icon}</span>
+            <h3 class="font-display text-xl text-[var(--color-primary)] mb-3">{title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi" class="py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+      <div class="w-64 h-80 bg-gradient-to-br from-[#c9a96e]/20 to-[#c9a96e]/5 rounded-3xl flex items-center justify-center border border-[#c9a96e]/20 shrink-0">
+        <span class="text-6xl">💇</span>
+      </div>
+      <div>
+        <p class="text-[#c9a96e] tracking-[0.3em] uppercase text-xs font-medium mb-4">Sobre mí</p>
+        <h2 class="font-display text-3xl md:text-4xl text-[var(--color-primary)] mb-6">Ángel Huerta</h2>
+        <p class="text-gray-500 leading-relaxed mb-4">
+          Con años de experiencia en el mundo de la peluquería, mi pasión es ayudarte a encontrar tu mejor versión. 
+          Cada cliente es único y merece una atención personalizada.
+        </p>
+        <p class="text-gray-500 leading-relaxed">
+          Me formo constantemente en las últimas tendencias y técnicas para ofrecerte siempre lo mejor.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria" class="py-24 px-6 bg-[var(--color-bg)]">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-[#c9a96e] tracking-[0.3em] uppercase text-xs font-medium text-center mb-4">Portfolio</p>
+      <h2 class="font-display text-4xl md:text-5xl text-center text-[var(--color-primary)] mb-16">Nuestro trabajo</h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {[1,2,3,4,5,6].map((i) => (
+          <div class="aspect-square bg-gradient-to-br from-gray-200 to-gray-100 rounded-2xl flex items-center justify-center hover:scale-[1.02] transition-transform duration-300 cursor-pointer">
+            <span class="text-gray-400 text-sm">Foto {i}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-gray-400 text-sm mt-8">Añade fotos de trabajos reales para mostrar tu portfolio</p>
+    </div>
+  </section>
+
+  <!-- CONTACTO / CITA -->
+  <section id="cita" class="py-24 px-6 bg-[#1a1a1a]">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-[#c9a96e] tracking-[0.3em] uppercase text-xs font-medium mb-4">Contacto</p>
+      <h2 class="font-display text-4xl md:text-5xl text-white mb-6">Pide tu cita</h2>
+      <p class="text-white/60 mb-10 max-w-lg mx-auto">
+        Llámanos o escríbenos por WhatsApp para reservar tu cita. ¡Te esperamos!
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <a href="tel:+34XXXXXXXXX" class="bg-[#c9a96e] text-[#1a1a1a] px-8 py-4 rounded-full font-semibold text-sm tracking-wide uppercase hover:bg-[#d4b87a] transition-all duration-300 inline-flex items-center justify-center gap-2">
+          📞 Llamar
+        </a>
+        <a href="https://wa.me/34XXXXXXXXX" target="_blank" class="bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold text-sm tracking-wide uppercase hover:bg-[#20bd5a] transition-all duration-300 inline-flex items-center justify-center gap-2">
+          💬 WhatsApp
+        </a>
+      </div>
+      
+      <div class="grid sm:grid-cols-3 gap-8 text-white/60 text-sm">
+        <div>
+          <p class="text-[#c9a96e] font-semibold mb-2">📍 Dirección</p>
+          <p>Calle ejemplo, 123<br/>Ciudad, Provincia</p>
+        </div>
+        <div>
+          <p class="text-[#c9a96e] font-semibold mb-2">🕐 Horario</p>
+          <p>Lunes a Viernes: 10:00 - 20:00<br/>Sábados: 10:00 - 14:00</p>
+        </div>
+        <div>
+          <p class="text-[#c9a96e] font-semibold mb-2">📱 Teléfono</p>
+          <p>+34 XXX XXX XXX</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-6 bg-[#111] text-center">
+    <p class="text-white/30 text-xs">© 2026 Ángel Huerta — Peluquería. Todos los derechos reservados.</p>
+  </footer>
+
+</Layout>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+</style>
