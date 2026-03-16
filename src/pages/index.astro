@@ -4,664 +4,437 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
 
-  <!-- ═══════════ NAVBAR ═══════════ -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/40 backdrop-blur-sm">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2">
-        <svg class="w-6 h-6 text-[var(--color-blue)] scissors-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M14.121 14.121A3 3 0 1 0 9.88 9.88M7.05 7.05l9.9 9.9M16.95 7.05l-9.9 9.9"/></svg>
-        <span class="font-display text-xl font-bold text-white nav-logo tracking-wide">ÁNGEL HUERTA</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#servicios" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Servicios</a>
-        <a href="#sobre-mi" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Sobre mí</a>
-        <a href="#galeria" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Galería</a>
-        <a href="#testimonios" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Opiniones</a>
-        <a href="#contacto" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Contacto</a>
-        <a href="#reservar" class="nav-cta bg-[var(--color-blue)] text-white px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg shadow-[var(--color-blue)]/20 flex items-center gap-1.5">
-          Reservar Cita <span class="text-xs">→</span>
+<!-- ████ NAVBAR ████ -->
+<nav id="nav" class="nav-glass fixed inset-x-0 top-0 z-50 px-6 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="#" class="text-lg font-bold tracking-[.25em] uppercase nav-white text-white">Ángel Huerta</a>
+    <div class="hidden md:flex items-center gap-10">
+      <a href="#servicios" class="nav-white text-white/80 text-[13px] tracking-widest uppercase hover:text-white transition">Servicios</a>
+      <a href="#historia" class="nav-white text-white/80 text-[13px] tracking-widest uppercase hover:text-white transition">Historia</a>
+      <a href="#galeria" class="nav-white text-white/80 text-[13px] tracking-widest uppercase hover:text-white transition">Galería</a>
+      <a href="#reservar" class="bg-[var(--blue)] text-white text-[13px] tracking-wider uppercase font-semibold px-6 py-2.5 rounded-full hover:brightness-110 transition">Reservar</a>
+    </div>
+    <button id="burger" class="md:hidden nav-white text-white" aria-label="Menú">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mob-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl mt-2 rounded-2xl shadow-xl p-6 space-y-4">
+    <a href="#servicios" class="block text-sm text-[var(--text)] mob-link">Servicios</a>
+    <a href="#historia" class="block text-sm text-[var(--text)] mob-link">Historia</a>
+    <a href="#galeria" class="block text-sm text-[var(--text)] mob-link">Galería</a>
+    <a href="#reservar" class="block bg-[var(--blue)] text-white text-center text-sm font-semibold py-3 rounded-full mob-link">Reservar cita</a>
+  </div>
+</nav>
+
+
+<!-- ████ HERO — FULLSCREEN CINEMATIC ████ -->
+<section class="snap-section relative overflow-hidden bg-black">
+  <img src="/img/hero-bg.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-40 scale-110" id="hero-img" />
+  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+
+  <div class="relative z-10 w-full px-6">
+    <div class="max-w-7xl mx-auto">
+      <!-- Big display text -->
+      <div class="overflow-hidden mb-4">
+        <h1 class="text-reveal text-reveal-d1 font-[Playfair_Display] text-white text-[clamp(3rem,8vw,7rem)] font-bold leading-[0.95] tracking-tight">
+          Ángel Huerta
+        </h1>
+      </div>
+      <div class="overflow-hidden mb-8">
+        <p class="text-reveal text-reveal-d2 text-white/50 text-[clamp(1rem,2.5vw,1.5rem)] font-light tracking-[.15em] uppercase">
+          Barbería · Puerto de Sagunto
+        </p>
+      </div>
+      <div class="overflow-hidden mb-12">
+        <p class="text-reveal text-reveal-d3 text-white/40 text-lg max-w-md leading-relaxed">
+          Más de 40 años de oficio. Una silla. Miles de historias.
+        </p>
+      </div>
+
+      <div class="flex gap-4 items-center" style="animation: textReveal 1s cubic-bezier(0.77,0,0.175,1) 1.1s both; clip-path: inset(0 100% 0 0);">
+        <a href="#reservar" class="bg-[var(--blue)] text-white px-8 py-4 text-sm font-semibold tracking-wider uppercase rounded-full hover:brightness-110 transition">
+          Pedir cita
+        </a>
+        <a href="#historia" class="text-white/50 text-sm tracking-wider uppercase hover:text-white transition flex items-center gap-2">
+          Descubrir <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         </a>
       </div>
-      <button id="mobile-toggle" class="md:hidden text-white p-2" aria-label="Menú">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-xl border-t border-[var(--color-border)]">
-      <div class="px-6 py-6 flex flex-col gap-4">
-        <a href="#servicios" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Servicios</a>
-        <a href="#sobre-mi" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Sobre mí</a>
-        <a href="#galeria" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Galería</a>
-        <a href="#testimonios" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Opiniones</a>
-        <a href="#contacto" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Contacto</a>
-        <a href="#reservar" class="bg-[var(--color-blue)] text-white px-6 py-3 rounded-full font-semibold text-sm text-center mt-2 mobile-link">Reservar Cita</a>
+  </div>
+
+  <!-- Bottom fade -->
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10"></div>
+</section>
+
+
+<!-- ████ MARQUEE — TRUST STRIP ████ -->
+<section class="py-6 bg-white overflow-hidden border-b border-gray-100">
+  <div class="marquee-track">
+    {[...Array(2)].map(() => (
+      <div class="flex items-center gap-16 px-8">
+        <span class="text-[var(--black)] text-sm font-semibold whitespace-nowrap">★★★★★ +200 Reseñas Google</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-[var(--text)] text-sm whitespace-nowrap">40+ años de experiencia</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-[var(--text)] text-sm whitespace-nowrap">Puerto de Sagunto, Valencia</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-[var(--text)] text-sm whitespace-nowrap">Miles de clientes satisfechos</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-[var(--text)] text-sm whitespace-nowrap">Reserva online con Booksy</span>
+        <span class="text-gray-300">·</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+<!-- ████ SERVICIOS — LISTA HORIZONTAL ELEGANTE ████ -->
+<section id="servicios" class="py-28 md:py-36 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-[1fr,2fr] gap-16 items-start">
+      <!-- Left col: heading sticky -->
+      <div class="md:sticky md:top-32 fade-up">
+        <p class="text-[var(--blue)] text-xs font-bold tracking-[.3em] uppercase mb-4">Servicios</p>
+        <h2 class="font-[Playfair_Display] text-4xl md:text-5xl text-[var(--black)] font-bold leading-tight mb-6">
+          Lo que<br/><em class="italic text-[var(--blue)]">hacemos</em>
+        </h2>
+        <p class="text-[var(--text)] leading-relaxed">Cada servicio con la atención y el detalle que solo 40 años de experiencia pueden dar.</p>
+      </div>
+
+      <!-- Right col: services -->
+      <div class="fade-up fade-up-d2">
+        {[
+          { num: '01', title: 'Corte Clásico', price: '15€', desc: 'Tijera, máquina o ambas. El corte de siempre, perfeccionado.' },
+          { num: '02', title: 'Degradado', price: '14€', desc: 'Skin fade, mid fade o lo que pidas. Limpio y preciso.' },
+          { num: '03', title: 'Afeitado a Navaja', price: '10€', desc: 'Toalla caliente, navaja y aftershave. Barbería clásica de verdad.' },
+          { num: '04', title: 'Arreglo de Barba', price: '8€', desc: 'Perfilado, recorte y forma. Tu barba en su mejor momento.' },
+          { num: '05', title: 'Corte + Barba', price: '18€', desc: 'El combo completo. Entra, relájate, sal nuevo.' },
+          { num: '06', title: 'Tratamiento Capilar', price: 'Consultar', desc: 'Hidratación, keratina y cuidado personalizado.' },
+        ].map(({ num, title, price, desc }) => (
+          <div class="group border-b border-gray-100 py-6 md:py-8 hover:bg-[var(--nardo)]/10 transition-colors duration-300 px-4 -mx-4 rounded-xl">
+            <div class="flex items-baseline gap-4 mb-2">
+              <span class="text-[var(--blue)]/30 text-xs font-mono">{num}</span>
+              <h3 class="text-lg md:text-xl font-bold text-[var(--black)] group-hover:text-[var(--blue)] transition-colors flex-1">{title}</h3>
+              <span class="text-[var(--blue)] font-bold text-lg font-[Playfair_Display]">{price}</span>
+            </div>
+            <p class="text-[var(--text)] text-sm pl-10">{desc}</p>
+          </div>
+        ))}
       </div>
     </div>
-  </nav>
+  </div>
+</section>
 
 
-  <!-- ═══════════ HERO ═══════════ -->
-  <section class="relative min-h-screen flex items-center">
-    <img src="/img/hero-bg.jpg" alt="Barbería Ángel Huerta" class="absolute inset-0 w-full h-full object-cover hero-parallax" loading="eager" />
-    <div class="hero-overlay absolute inset-0"></div>
+<!-- ████ ANTES / DESPUÉS — FULLWIDTH ████ -->
+<section class="py-28 md:py-36 bg-[var(--nardo)]/30">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-16 fade-up">
+      <p class="text-[var(--blue)] text-xs font-bold tracking-[.3em] uppercase mb-4">Resultados</p>
+      <h2 class="font-[Playfair_Display] text-4xl md:text-5xl text-[var(--black)] font-bold">
+        Hablan los <em class="italic text-[var(--blue)]">hechos</em>
+      </h2>
+    </div>
 
-    <!-- Deco circles -->
-    <div class="deco-circle w-[500px] h-[500px] -top-40 -right-40" style="position:absolute;"></div>
-    <div class="deco-circle w-[300px] h-[300px] bottom-20 left-10" style="position:absolute;"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
-      <div class="max-w-2xl">
-        <!-- Badge with animated glow border -->
-        <div class="hero-fade hero-fade-d1 badge-glow inline-flex items-center gap-2 px-5 py-2 mb-8 rounded-full">
-          <svg class="w-4 h-4 text-[var(--color-blue)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <span class="text-sm text-white/90 font-medium">Puerto de Sagunto, Valencia</span>
+    <div class="ba-wrap rounded-3xl aspect-[16/10] md:aspect-[16/9] fade-up" id="ba">
+      <img src="/img/before.jpg" alt="Antes" class="w-full h-full object-cover rounded-3xl" />
+      <div class="ba-over rounded-3xl" id="ba-over" style="clip-path: inset(0 50% 0 0);">
+        <img src="/img/after.jpg" alt="Después" class="w-full h-full object-cover" />
+      </div>
+      <div class="ba-line" id="ba-line" style="left:50%;">
+        <div class="ba-knob">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg>
         </div>
+      </div>
+      <span class="absolute top-5 left-5 bg-black/50 backdrop-blur text-white text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full z-20">Antes</span>
+      <span class="absolute top-5 right-5 bg-[var(--blue)] text-white text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full z-20">Después</span>
+    </div>
 
-        <h1 class="hero-fade hero-fade-d2 font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.05] mb-6">
-          Tu barbero<br/>de <em class="italic text-[var(--color-blue)]">confianza</em>
-        </h1>
+    <div class="text-center mt-16 fade-up">
+      <p class="text-2xl md:text-3xl font-[Playfair_Display] text-[var(--black)] font-bold mb-6">¿Quieres este resultado?</p>
+      <a href="#reservar" class="inline-block bg-[var(--blue)] text-white px-10 py-4 text-sm font-semibold tracking-wider uppercase rounded-full hover:brightness-110 transition">
+        Pedir cita →
+      </a>
+    </div>
+  </div>
+</section>
 
-        <p class="hero-fade hero-fade-d3 text-white/70 text-lg md:text-xl max-w-lg mb-10 leading-relaxed">
-          Más de 40 años de experiencia haciendo que cada cliente salga sintiéndose su mejor versión.
+
+<!-- ████ HISTORIA — SPLIT LAYOUT EDITORIAL ████ -->
+<section id="historia" class="snap-section bg-white overflow-hidden">
+  <div class="w-full grid md:grid-cols-2 min-h-screen">
+    <!-- Left: foto fullheight -->
+    <div class="relative img-zoom h-[50vh] md:h-auto overflow-hidden">
+      <img src="/img/barber-portrait.jpg" alt="Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/10"></div>
+    </div>
+
+    <!-- Right: texto editorial -->
+    <div class="flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-0">
+      <div class="max-w-lg fade-up">
+        <p class="text-[var(--blue)] text-xs font-bold tracking-[.3em] uppercase mb-6">Sobre Ángel</p>
+
+        <div class="big-num text-[var(--nardo)] mb-2 select-none" aria-hidden="true">40</div>
+        <p class="text-[var(--text)] text-xs tracking-[.2em] uppercase mb-10">Años de oficio</p>
+
+        <h2 class="font-[Playfair_Display] text-3xl md:text-4xl text-[var(--black)] font-bold leading-snug mb-8">
+          Un chaval de Puerto de Sagunto que encontró su <em class="italic text-[var(--blue)]">pasión</em>
+        </h2>
+
+        <p class="text-[var(--text)] leading-relaxed mb-5 text-[15px]">
+          Empecé con 17 años. Desde entonces, la silla de barbero ha sido mi sitio. He visto cambiar las modas, las herramientas y las generaciones — pero lo importante sigue igual: que cada persona que se sienta en mi silla salga sintiéndose bien.
+        </p>
+        <p class="text-[var(--text)] leading-relaxed mb-10 text-[15px]">
+          Fuera de aquí, el culturismo me enseñó disciplina. La moto me da libertad. Pero siempre vuelvo a lo mismo: las tijeras, la navaja y una buena conversación.
         </p>
 
-        <div class="hero-fade hero-fade-d4 flex flex-col sm:flex-row gap-4 items-start">
-          <a href="#reservar" class="btn-shimmer bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm flex items-center gap-2">
-            Reservar Cita <span>→</span>
-          </a>
-          <a href="#servicios" class="btn-ghost border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-sm">
-            Ver Servicios
-          </a>
-        </div>
+        <blockquote class="border-l-[3px] border-[var(--blue)] pl-6">
+          <p class="font-[Playfair_Display] text-[var(--black)] text-xl italic leading-relaxed">
+            "No es solo un corte. Es hacer que te mires al espejo y te gustes."
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Rating -->
-        <div class="hero-fade hero-fade-d5 mt-8 flex items-center gap-3">
-          <div class="flex gap-0.5">
+
+<!-- ████ GALERÍA — HORIZONTAL SCROLL ████ -->
+<section id="galeria" class="py-28 md:py-36 bg-[var(--black)]">
+  <div class="max-w-7xl mx-auto mb-12 px-6 flex items-end justify-between">
+    <div class="fade-up">
+      <p class="text-[var(--blue)] text-xs font-bold tracking-[.3em] uppercase mb-4">Portfolio</p>
+      <h2 class="font-[Playfair_Display] text-4xl md:text-5xl text-white font-bold">
+        Nuestro <em class="italic text-[var(--blue)]">trabajo</em>
+      </h2>
+    </div>
+    <p class="text-white/30 text-sm hidden md:block fade-up">Desliza →</p>
+  </div>
+
+  <div class="h-scroll fade-up">
+    {[
+      { src: '/img/gallery-1.jpg', w: 'w-[300px] md:w-[400px]', h: 'h-[400px] md:h-[500px]' },
+      { src: '/img/gallery-2.jpg', w: 'w-[250px] md:w-[350px]', h: 'h-[350px] md:h-[450px]' },
+      { src: '/img/gallery-3.jpg', w: 'w-[300px] md:w-[400px]', h: 'h-[400px] md:h-[500px]' },
+      { src: '/img/gallery-4.jpg', w: 'w-[220px] md:w-[300px]', h: 'h-[350px] md:h-[450px]' },
+      { src: '/img/gallery-5.jpg', w: 'w-[280px] md:w-[380px]', h: 'h-[400px] md:h-[500px]' },
+      { src: '/img/gallery-6.jpg', w: 'w-[250px] md:w-[350px]', h: 'h-[350px] md:h-[450px]' },
+    ].map(({ src, w, h }) => (
+      <div class={`${w} ${h} rounded-2xl overflow-hidden relative group`}>
+        <img src={src} alt="Trabajo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500"></div>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+<!-- ████ TESTIMONIOS — EDITORIAL ████ -->
+<section class="py-28 md:py-36 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-20 fade-up">
+      <p class="text-[var(--blue)] text-xs font-bold tracking-[.3em] uppercase mb-4">Opiniones</p>
+      <h2 class="font-[Playfair_Display] text-4xl md:text-5xl text-[var(--black)] font-bold">
+        Clientes <em class="italic text-[var(--blue)]">reales</em>
+      </h2>
+    </div>
+
+    <!-- Feature quote -->
+    <div class="max-w-3xl mx-auto text-center mb-20 fade-up relative">
+      <span class="font-[Playfair_Display] text-[8rem] md:text-[12rem] text-[var(--nardo)] leading-none absolute -top-16 left-1/2 -translate-x-1/2 select-none pointer-events-none" aria-hidden="true">"</span>
+      <div class="relative z-10">
+        <p class="font-[Playfair_Display] text-2xl md:text-3xl text-[var(--black)] italic leading-relaxed mb-8">
+          Llevo yendo a Ángel más de 15 años. No cambio de barbero ni loco. Es un crack con las tijeras y siempre sabe lo que quiero antes de que se lo diga.
+        </p>
+        <div class="flex items-center justify-center gap-3">
+          <img src="/img/avatar-1.jpg" alt="" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+          <div class="text-left">
+            <p class="text-sm font-bold text-[var(--black)]">Carlos M.</p>
+            <p class="text-xs text-[var(--text)]">Cliente desde 2011</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two smaller -->
+    <div class="grid md:grid-cols-2 gap-8 fade-up">
+      {[
+        { text: 'Mi padre ya iba con él. Ahora voy yo con mis hijos. Tres generaciones en la misma silla.', name: 'David R.', since: 'Cliente desde 2018', img: '/img/avatar-2.jpg' },
+        { text: 'El mejor degradado de todo Puerto de Sagunto, sin discusión. Y encima buen tío.', name: 'Javier L.', since: 'Cliente desde 2020', img: '/img/avatar-3.jpg' },
+      ].map(({ text, name, since, img }) => (
+        <div class="bg-[var(--nardo)]/15 rounded-2xl p-8 md:p-10">
+          <div class="flex gap-0.5 mb-5">
             {[1,2,3,4,5].map(() => (
               <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
             ))}
           </div>
-          <span class="text-white/60 text-sm">+200 reseñas en Google</span>
+          <p class="text-[var(--text)] italic leading-relaxed mb-6 text-[15px]">"{text}"</p>
+          <div class="flex items-center gap-3">
+            <img src={img} alt="" class="w-10 h-10 rounded-full object-cover" loading="lazy" />
+            <div>
+              <p class="text-sm font-bold text-[var(--black)]">{name}</p>
+              <p class="text-xs text-[var(--text)]">{since}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+<!-- ████ RESERVAS — DARK CTA SECTION ████ -->
+<section id="reservar" class="snap-section bg-[var(--black)] text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-5">
+    <div class="w-full h-full" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.05) 35px, rgba(255,255,255,0.05) 36px);"></div>
+  </div>
+
+  <div class="relative z-10 w-full px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="fade-up">
+        <p class="text-[var(--blue)] text-xs font-bold tracking-[.3em] uppercase mb-6">Reservas</p>
+        <h2 class="font-[Playfair_Display] text-4xl md:text-6xl font-bold leading-tight mb-6">
+          ¿Listo para tu<br/><em class="italic text-[var(--blue)]">nuevo look</em>?
+        </h2>
+        <p class="text-white/50 text-lg max-w-md mx-auto mb-12">Reserva online o llámanos. Sin esperas, sin complicaciones.</p>
+      </div>
+
+      <!-- Booksy -->
+      <div id="booksy-widget" class="fade-up bg-white/5 border border-white/10 rounded-3xl p-10 md:p-16 mb-12 min-h-[350px] flex items-center justify-center">
+        <div class="text-center">
+          <svg class="w-12 h-12 text-[var(--blue)] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          <p class="text-white/60 font-medium">Widget de Booksy</p>
+          <p class="text-white/30 text-sm mt-1">Pega el código embed aquí</p>
         </div>
       </div>
-    </div>
-  </section>
 
-
-  <!-- ═══════════ BARRA DE CONFIANZA ═══════════ -->
-  <section class="bg-white border-b border-[var(--color-border)]">
-    <div class="max-w-6xl mx-auto px-6 py-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x divide-[var(--color-border)]">
-        {[
-          { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', label: '40+ años', sub: 'de experiencia' },
-          { icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z', label: 'Miles', sub: 'de clientes' },
-          { icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z', label: '5 ★', sub: 'en Google' },
-          { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', label: 'Puerto de Sagunto', sub: 'Valencia' },
-        ].map(({ icon, label, sub }) => (
-          <div class="flex items-center gap-3 md:justify-center md:px-4">
-            <svg class="w-5 h-5 text-[var(--color-blue)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={icon}/></svg>
-            <div>
-              <p class="text-sm font-bold text-[var(--color-black)]">{label}</p>
-              <p class="text-xs text-[var(--color-text)]">{sub}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════ SERVICIOS (01) ═══════════ -->
-  <section id="servicios" class="relative py-20 md:py-28 px-6 bg-[var(--color-light)] overflow-hidden">
-    <!-- Section number decorativo -->
-    <span class="section-number top-4 right-6">01</span>
-    <!-- Deco circles -->
-    <div class="deco-circle w-[200px] h-[200px] -top-20 -left-20"></div>
-    <div class="deco-circle w-[350px] h-[350px] -bottom-40 -right-32"></div>
-
-    <div class="max-w-4xl mx-auto relative z-10">
-      <div class="text-center mb-16 reveal">
-        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Servicios</span>
-        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Nuestros <em>servicios</em></h2>
-        <p class="text-[var(--color-text)] text-lg max-w-md mx-auto">Todo lo que necesitas en un solo sitio, con la calidad de siempre</p>
-      </div>
-
-      <div class="reveal-stagger space-y-0">
-        {[
-          { title: 'Corte Clásico', price: '15€', desc: 'Corte tradicional a tijera con acabado perfecto' },
-          { title: 'Degradado', price: '14€', desc: 'Skin fade, mid fade o high fade adaptado a tu estilo' },
-          { title: 'Afeitado Clásico', price: '10€', desc: 'Navaja con toalla caliente. Experiencia de barbería clásica' },
-          { title: 'Arreglo de Barba', price: '8€', desc: 'Perfilado, recorte y cuidado de barba' },
-          { title: 'Corte + Barba', price: '18€', desc: 'El servicio completo en una sola sesión' },
-          { title: 'Tratamiento Capilar', price: 'Consultar', desc: 'Tratamientos personalizados para la salud de tu cabello' },
-        ].map(({ title, price, desc }) => (
-          <div class="service-row py-5 px-2 flex items-baseline rounded-lg">
-            <div class="shrink-0">
-              <h3 class="text-lg font-bold text-[var(--color-black)]">{title}</h3>
-              <p class="text-sm text-[var(--color-text)] mt-0.5">{desc}</p>
-            </div>
-            <span class="service-dot-line"></span>
-            <span class="text-xl font-bold text-[var(--color-blue)] shrink-0 font-display">{price}</span>
-          </div>
-        ))}
-      </div>
-
-      <div class="text-center mt-14 reveal">
-        <a href="#reservar" class="btn-shimmer inline-flex items-center gap-2 bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm">
-          Reservar Cita <span>→</span>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up">
+        <a href="https://wa.me/34XXXXXXXXX" target="_blank" class="bg-[#25D366] text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wider uppercase flex items-center justify-center gap-2 hover:brightness-110 transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="tel:+34XXXXXXXXX" class="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-white/20 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          Llamar
         </a>
       </div>
     </div>
-  </section>
-
-
-  <!-- Wave divider: light → white -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,60 C360,0 720,40 1080,10 C1260,-5 1380,20 1440,30 L1440,60 Z" fill="#ffffff"/>
-    </svg>
   </div>
+</section>
 
 
-  <!-- ═══════════ ANTES / DESPUÉS (02) ═══════════ -->
-  <section class="relative py-20 md:py-28 px-6 bg-white overflow-hidden">
-    <span class="section-number top-4 left-6">02</span>
-    <div class="deco-circle w-[250px] h-[250px] top-10 -right-24"></div>
+<!-- ████ UBICACIÓN — MINIMAL ████ -->
+<section class="py-28 md:py-36 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="fade-up">
+        <p class="text-[var(--blue)] text-xs font-bold tracking-[.3em] uppercase mb-4">Ubicación</p>
+        <h2 class="font-[Playfair_Display] text-3xl md:text-4xl text-[var(--black)] font-bold mb-10">
+          Encuéntranos en<br/><em class="italic text-[var(--blue)]">Puerto de Sagunto</em>
+        </h2>
 
-    <div class="max-w-4xl mx-auto relative z-10">
-      <div class="text-center mb-14 reveal">
-        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Resultados</span>
-        <h2 class="heading-xl text-3xl md:text-5xl mb-4">El resultado habla <em>por sí solo</em></h2>
-        <p class="text-[var(--color-text)] text-lg">Arrastra para comparar el antes y después</p>
-      </div>
-
-      <div class="ba-slider reveal" id="ba-slider" style="aspect-ratio: 4/3;">
-        <!-- Before -->
-        <img src="/img/before.jpg" alt="Antes" class="w-full h-full object-cover" />
-        <!-- After -->
-        <div class="ba-after" id="ba-after" style="clip-path: inset(0 50% 0 0);">
-          <img src="/img/after.jpg" alt="Después" class="w-full h-full object-cover" />
-        </div>
-        <!-- Handle -->
-        <div class="ba-handle" id="ba-handle" style="left: 50%;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3E76B6" stroke-width="2.5" stroke-linecap="round"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg>
-        </div>
-        <!-- Labels -->
-        <span class="ba-label absolute top-4 left-4 text-white text-xs font-semibold px-3 py-1.5 rounded-full z-20">ANTES</span>
-        <span class="ba-label absolute top-4 right-4 text-white text-xs font-semibold px-3 py-1.5 rounded-full z-20 !bg-[var(--color-blue)]">DESPUÉS</span>
-      </div>
-
-      <div class="text-center mt-14 reveal">
-        <p class="text-[var(--color-black)] text-xl md:text-2xl font-display font-bold mb-6">¿Quieres estos resultados?</p>
-        <a href="#reservar" class="btn-shimmer inline-flex items-center gap-2 bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm">
-          Reserva tu cita <span>→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Line separator -->
-  <div class="line-separator max-w-6xl mx-auto"></div>
-
-
-  <!-- ═══════════ SOBRE ÁNGEL (03) ═══════════ -->
-  <section id="sobre-mi" class="relative py-20 md:py-28 px-6 bg-white overflow-hidden">
-    <span class="section-number -top-2 right-6">03</span>
-    <div class="deco-circle w-[400px] h-[400px] -bottom-48 -left-32"></div>
-
-    <div class="max-w-6xl mx-auto relative z-10">
-      <div class="grid md:grid-cols-12 gap-12 items-center">
-        <!-- Foto con partial-border -->
-        <div class="md:col-span-5 reveal-left">
-          <div class="relative">
-            <div class="partial-border-tl partial-border-br aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
-              <img src="/img/barber-portrait.jpg" alt="Ángel Huerta, barbero profesional en Puerto de Sagunto" class="w-full h-full object-cover" loading="lazy" />
-            </div>
-            <div class="absolute -bottom-4 -right-4 bg-[var(--color-blue)] text-white px-5 py-3 rounded-xl shadow-lg">
-              <p class="font-display text-2xl font-bold">40+</p>
-              <p class="text-xs text-white/80">años de oficio</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="md:col-span-7 reveal-right">
-          <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Sobre mí</span>
-          <h2 class="heading-xl text-3xl md:text-5xl mb-8">Ángel <em>Huerta</em></h2>
-
-          <p class="text-[var(--color-text)] leading-relaxed mb-5 text-lg">
-            Llevo más de 40 años detrás de la silla de barbero. Empecé siendo un chaval en Puerto de Sagunto y aquí sigo, haciendo lo que más me gusta: que cada cliente salga sintiéndose mejor.
-          </p>
-          <p class="text-[var(--color-text)] leading-relaxed mb-8">
-            Fuera de la barbería, el culturismo me enseñó disciplina y constancia. Y cuando necesito desconectar, me subo a la moto y me pierdo por carretera. Pero siempre vuelvo a lo mío: las tijeras y la navaja.
-          </p>
-
-          <blockquote class="border-l-4 border-[var(--color-blue)] pl-6 mb-10 relative">
-            <svg class="absolute -top-3 -left-1 w-8 h-8 text-[var(--color-blue)]/20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z"/></svg>
-            <p class="text-[var(--color-black)] text-lg italic leading-relaxed font-display">
-              "No es solo un corte de pelo. Es hacer que te mires al espejo y te gustes."
-            </p>
-          </blockquote>
-
-          <!-- Stats con stat-number -->
-          <div class="grid grid-cols-3 gap-6">
-            <div>
-              <p class="stat-number text-3xl md:text-4xl text-[var(--color-blue)] counter" data-target="40">0</p>
-              <p class="text-[var(--color-text)] text-sm mt-1">años de oficio</p>
-            </div>
-            <div>
-              <p class="stat-number text-3xl md:text-4xl text-[var(--color-blue)]">Miles</p>
-              <p class="text-[var(--color-text)] text-sm mt-1">de clientes</p>
-            </div>
-            <div>
-              <p class="stat-number text-3xl md:text-4xl text-[var(--color-blue)] counter" data-target="1">0</p>
-              <p class="text-[var(--color-text)] text-sm mt-1">pasión</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Wave divider: white → nardo -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="var(--color-nardo)"/>
-    </svg>
-  </div>
-
-
-  <!-- ═══════════ TESTIMONIOS (04) ═══════════ -->
-  <section id="testimonios" class="relative py-20 md:py-28 px-6 bg-[var(--color-nardo)] overflow-hidden">
-    <span class="section-number top-4 left-6">04</span>
-    <div class="deco-circle w-[300px] h-[300px] top-20 -right-32"></div>
-
-    <div class="max-w-6xl mx-auto relative z-10">
-      <div class="text-center mb-14 reveal">
-        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mx-auto">Opiniones</span>
-        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Lo que dicen nuestros <em>clientes</em></h2>
-      </div>
-
-      <!-- 1 featured + 2 small layout -->
-      <div class="grid md:grid-cols-2 gap-6 reveal">
-        <!-- Featured testimonial -->
-        <div class="testimonial-featured bg-white rounded-2xl p-8 md:p-10 shadow-sm relative overflow-hidden dot-pattern">
-          <span class="quote-mark top-4 left-6">"</span>
-          <div class="relative z-10">
-            <div class="flex gap-1 mb-6">
-              {[1,2,3,4,5].map(() => (
-                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              ))}
-            </div>
-            <p class="text-[var(--color-text)] text-lg italic leading-relaxed mb-8 font-display">
-              "Llevo yendo a Ángel más de 15 años. No cambio de barbero ni loco. Es un crack con las tijeras y siempre sabe lo que quiero antes de que se lo diga."
-            </p>
-            <div class="flex items-center gap-4">
-              <img src="/img/avatar-1.jpg" alt="Carlos M." class="w-14 h-14 rounded-full object-cover" loading="lazy" />
-              <div>
-                <p class="font-bold text-[var(--color-black)] text-lg">Carlos M.</p>
-                <p class="text-sm text-[var(--color-text)]">Cliente desde 2011</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2 small testimonials stacked -->
-        <div class="flex flex-col gap-6">
-          <div class="testimonial-small bg-white rounded-2xl p-7 shadow-sm">
-            <div class="flex gap-1 mb-4">
-              {[1,2,3,4,5].map(() => (
-                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              ))}
-            </div>
-            <p class="text-[var(--color-text)] italic leading-relaxed mb-5">"Mi padre ya iba con él. Ahora voy yo con mis hijos. Tres generaciones en la misma silla."</p>
-            <div class="flex items-center gap-3">
-              <img src="/img/avatar-2.jpg" alt="David R." class="w-10 h-10 rounded-full object-cover" loading="lazy" />
-              <div>
-                <p class="text-sm font-bold text-[var(--color-black)]">David R.</p>
-                <p class="text-xs text-[var(--color-text)]">Cliente desde 2018</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-small bg-white rounded-2xl p-7 shadow-sm">
-            <div class="flex gap-1 mb-4">
-              {[1,2,3,4,5].map(() => (
-                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              ))}
-            </div>
-            <p class="text-[var(--color-text)] italic leading-relaxed mb-5">"El mejor degradado de todo Puerto de Sagunto, sin discusión. Y encima buen tío."</p>
-            <div class="flex items-center gap-3">
-              <img src="/img/avatar-3.jpg" alt="Javier L." class="w-10 h-10 rounded-full object-cover" loading="lazy" />
-              <div>
-                <p class="text-sm font-bold text-[var(--color-black)]">Javier L.</p>
-                <p class="text-xs text-[var(--color-text)]">Cliente desde 2020</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Wave divider: nardo → white -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/>
-    </svg>
-  </div>
-
-
-  <!-- ═══════════ GALERÍA (05) ═══════════ -->
-  <section id="galeria" class="relative py-20 md:py-28 px-6 bg-white overflow-hidden">
-    <span class="section-number top-4 right-6">05</span>
-    <div class="deco-circle w-[280px] h-[280px] -bottom-32 left-10"></div>
-
-    <div class="max-w-6xl mx-auto relative z-10">
-      <div class="text-center mb-14 reveal">
-        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mx-auto">Portfolio</span>
-        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Nuestro <em>trabajo</em></h2>
-      </div>
-
-      <!-- Bento grid: 1 grande row-span-2, 2 medianas, 3 pequeñas -->
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 reveal-stagger" style="grid-auto-rows: 200px;">
-        <!-- Grande: row-span-2 -->
-        <div class="gallery-item md:row-span-2 rounded-xl overflow-hidden">
-          <img src="/img/gallery-1.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
-          <div class="gallery-curtain rounded-xl">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
-          </div>
-        </div>
-        <!-- Mediana 1 -->
-        <div class="gallery-item rounded-xl overflow-hidden">
-          <img src="/img/gallery-2.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
-          <div class="gallery-curtain rounded-xl">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
-          </div>
-        </div>
-        <!-- Mediana 2 -->
-        <div class="gallery-item rounded-xl overflow-hidden">
-          <img src="/img/gallery-3.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
-          <div class="gallery-curtain rounded-xl">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
-          </div>
-        </div>
-        <!-- Pequeña 1 -->
-        <div class="gallery-item rounded-xl overflow-hidden">
-          <img src="/img/gallery-4.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
-          <div class="gallery-curtain rounded-xl">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
-          </div>
-        </div>
-        <!-- Pequeña 2 -->
-        <div class="gallery-item rounded-xl overflow-hidden">
-          <img src="/img/gallery-5.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
-          <div class="gallery-curtain rounded-xl">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
-          </div>
-        </div>
-        <!-- Pequeña 3 -->
-        <div class="gallery-item rounded-xl overflow-hidden">
-          <img src="/img/gallery-6.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
-          <div class="gallery-curtain rounded-xl">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Line separator -->
-  <div class="line-separator max-w-6xl mx-auto"></div>
-
-
-  <!-- ═══════════ RESERVAS / BOOKSY (06) ═══════════ -->
-  <section id="reservar" class="relative py-20 md:py-28 px-6 bg-[var(--color-light)] overflow-hidden">
-    <span class="section-number top-4 left-6">06</span>
-    <div class="deco-circle w-[320px] h-[320px] -top-32 -right-20"></div>
-
-    <div class="max-w-4xl mx-auto text-center relative z-10">
-      <div class="reveal">
-        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mx-auto">Citas</span>
-        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Reserva tu <em>cita</em></h2>
-        <p class="text-[var(--color-text)] text-lg max-w-lg mx-auto mb-10">Fácil, rápido y sin esperas</p>
-      </div>
-
-      <!-- Booksy widget placeholder -->
-      <div id="booksy-widget" class="reveal bg-white rounded-2xl p-12 md:p-16 mb-10 shadow-sm border border-[var(--color-border)]" style="min-height: 400px;">
-        <div class="flex flex-col items-center justify-center gap-4">
-          <div class="w-16 h-16 bg-[var(--color-blue)]/10 rounded-2xl flex items-center justify-center">
-            <svg class="w-8 h-8 text-[var(--color-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
-          </div>
-          <p class="text-[var(--color-black)] font-semibold">Widget de Booksy</p>
-          <p class="text-[var(--color-text)] text-sm">Pega aquí el código embed de Booksy para activar reservas online</p>
-        </div>
-      </div>
-
-      <div class="reveal">
-        <p class="text-[var(--color-text)] text-sm mb-6">O si prefieres el trato directo:</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/34XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-shimmer inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold text-sm">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp
-          </a>
-          <a href="tel:+34XXXXXXXXX" class="btn-shimmer inline-flex items-center justify-center gap-3 bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-            Llamar
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Wave divider: light → white -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,20 C240,60 720,0 1200,40 C1360,50 1440,30 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/>
-    </svg>
-  </div>
-
-
-  <!-- ═══════════ UBICACIÓN (07) ═══════════ -->
-  <section id="contacto" class="relative py-20 md:py-28 px-6 bg-white overflow-hidden">
-    <span class="section-number top-4 right-6">07</span>
-    <div class="deco-circle w-[220px] h-[220px] top-40 -left-20"></div>
-
-    <div class="max-w-6xl mx-auto relative z-10">
-      <div class="text-center mb-14 reveal">
-        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mx-auto">Ubicación</span>
-        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Dónde <em>encontrarnos</em></h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-10 items-start">
-        <div class="space-y-6 reveal-left">
-          {[
-            { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', title: 'Dirección', content: 'Calle ejemplo, 123<br/>46520 Puerto de Sagunto, Valencia' },
-            { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', title: 'Horario', content: '<div class="flex justify-between"><span>Lunes – Viernes</span><span class="font-semibold text-[var(--color-black)]">10:00 – 20:00</span></div><div class="flex justify-between"><span>Sábados</span><span class="font-semibold text-[var(--color-black)]">10:00 – 14:00</span></div><div class="flex justify-between"><span>Domingos</span><span class="text-[var(--color-text)]/50">Cerrado</span></div>' },
-            { icon: 'M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z', title: 'Contacto', content: 'Teléfono: <a href="tel:+34XXXXXXXXX" class="text-[var(--color-blue)] hover:underline font-medium">+34 XXX XXX XXX</a>' },
-          ].map(({ icon, title, content }) => (
-            <div class="bg-[var(--color-light)] rounded-2xl p-6">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="w-9 h-9 bg-[var(--color-blue)]/10 rounded-lg flex items-center justify-center">
-                  <svg class="w-4.5 h-4.5 text-[var(--color-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={icon}/></svg>
-                </div>
-                <h3 class="font-bold text-[var(--color-black)]">{title}</h3>
-              </div>
-              <div class="text-sm text-[var(--color-text)] leading-relaxed space-y-1.5 pl-12" set:html={content} />
-            </div>
-          ))}
-        </div>
-
-        <div class="reveal-right">
-          <div class="aspect-[4/3] bg-[var(--color-light)] rounded-2xl overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24576.0!2d-0.214!3d39.6447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd601a7e5c3fffff%3A0x4000000000000000!2sPuerto%20de%20Sagunto%2C%20Valencia!5e0!3m2!1ses!2ses!4v1"
-              width="100%"
-              height="100%"
-              style="border:0; min-height: 340px;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Ubicación de Ángel Huerta Barbería en Puerto de Sagunto"
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════ FOOTER — 4 columnas ═══════════ -->
-  <footer class="py-16 px-6 bg-[var(--color-black)]">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-        <!-- Col 1: Logo + tagline -->
-        <div>
-          <a href="#" class="flex items-center gap-2 mb-4">
-            <svg class="w-5 h-5 text-[var(--color-blue)] scissors-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M14.121 14.121A3 3 0 1 0 9.88 9.88M7.05 7.05l9.9 9.9M16.95 7.05l-9.9 9.9"/></svg>
-            <span class="font-display text-xl font-bold text-white tracking-wide">ÁNGEL HUERTA</span>
-          </a>
-          <p class="text-white/40 text-sm leading-relaxed">Barbería en Puerto de Sagunto, Valencia. Más de 40 años haciendo que cada cliente salga sintiéndose su mejor versión.</p>
-        </div>
-
-        <!-- Col 2: Links -->
-        <div>
-          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Enlaces</h4>
-          <ul class="space-y-3">
-            <li><a href="#servicios" class="footer-link text-sm text-white/50 inline-block">Servicios</a></li>
-            <li><a href="#sobre-mi" class="footer-link text-sm text-white/50 inline-block">Sobre mí</a></li>
-            <li><a href="#galeria" class="footer-link text-sm text-white/50 inline-block">Galería</a></li>
-            <li><a href="#testimonios" class="footer-link text-sm text-white/50 inline-block">Opiniones</a></li>
-            <li><a href="#contacto" class="footer-link text-sm text-white/50 inline-block">Contacto</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Horario -->
-        <div>
-          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Horario</h4>
-          <ul class="space-y-3 text-sm text-white/50">
-            <li class="flex justify-between"><span>Lunes – Viernes</span><span class="text-white/70">10:00 – 20:00</span></li>
-            <li class="flex justify-between"><span>Sábados</span><span class="text-white/70">10:00 – 14:00</span></li>
-            <li class="flex justify-between"><span>Domingos</span><span class="text-white/30">Cerrado</span></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Social -->
-        <div>
-          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Síguenos</h4>
+        <div class="space-y-6 text-[15px]">
           <div class="flex gap-4">
-            <!-- Instagram -->
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon text-white/50 inline-block">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <!-- Facebook -->
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon text-white/50 inline-block">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <!-- TikTok -->
-            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-icon text-white/50 inline-block">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-            </a>
+            <div class="w-10 h-10 bg-[var(--nardo)]/30 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-[var(--blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0115 0z"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--black)] mb-0.5">Dirección</p>
+              <p class="text-[var(--text)]">Calle ejemplo, 123<br/>46520 Puerto de Sagunto, Valencia</p>
+            </div>
           </div>
-          <div class="mt-6">
-            <a href="#reservar" class="btn-shimmer inline-flex items-center gap-2 bg-[var(--color-blue)] text-white px-6 py-2.5 rounded-full font-semibold text-sm">
-              Reservar Cita <span class="text-xs">→</span>
-            </a>
+
+          <div class="flex gap-4">
+            <div class="w-10 h-10 bg-[var(--nardo)]/30 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-[var(--blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--black)] mb-0.5">Horario</p>
+              <p class="text-[var(--text)]">Lun – Vie: 10:00 – 20:00</p>
+              <p class="text-[var(--text)]">Sábados: 10:00 – 14:00</p>
+              <p class="text-[var(--text)]/50">Domingos: Cerrado</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="w-10 h-10 bg-[var(--nardo)]/30 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-[var(--blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-[var(--black)] mb-0.5">Contacto</p>
+              <p class="text-[var(--text)]"><a href="tel:+34XXXXXXXXX" class="text-[var(--blue)] hover:underline">+34 XXX XXX XXX</a></p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="line-separator mb-8"></div>
-
-      <div class="text-center">
-        <p class="text-white/30 text-xs">&copy; 2026 Ángel Huerta — Barbería en Puerto de Sagunto. Todos los derechos reservados.</p>
+      <div class="fade-up fade-up-d2 rounded-3xl overflow-hidden h-[400px] md:h-[500px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12288!2d-0.214!3d39.6447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd601a7e5c3fffff%3A0x4000000000000000!2sPuerto%20de%20Sagunto%2C%20Valencia!5e0!3m2!1ses!2ses!4v1"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación"
+        ></iframe>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+
+<!-- ████ FOOTER ████ -->
+<footer class="bg-[var(--black)] py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+      <div class="md:col-span-2">
+        <p class="text-white text-lg font-bold tracking-[.2em] uppercase mb-3">Ángel Huerta</p>
+        <p class="text-white/40 text-sm leading-relaxed max-w-sm">Barbería en Puerto de Sagunto. Más de 40 años haciendo que cada cliente se sienta su mejor versión.</p>
+      </div>
+      <div>
+        <p class="text-white/60 text-xs tracking-[.2em] uppercase font-semibold mb-4">Horario</p>
+        <p class="text-white/40 text-sm">Lun – Vie: 10:00 – 20:00</p>
+        <p class="text-white/40 text-sm">Sábados: 10:00 – 14:00</p>
+      </div>
+      <div>
+        <p class="text-white/60 text-xs tracking-[.2em] uppercase font-semibold mb-4">Síguenos</p>
+        <div class="flex gap-4">
+          <a href="#" class="text-white/40 hover:text-[var(--blue)] transition" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 text-center">
+      <p class="text-white/20 text-xs">© 2026 Ángel Huerta · Barbería en Puerto de Sagunto</p>
+    </div>
+  </div>
+</footer>
 
 </Layout>
 
-
 <script>
-  // ── Navbar scroll ──
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      navbar?.classList.add('nav-scrolled');
-      navbar?.querySelectorAll('.nav-logo').forEach(el => el.classList.add('!text-[#1A1A1A]'));
-      navbar?.querySelectorAll('.nav-link').forEach(el => { el.classList.remove('text-white/80'); el.classList.add('text-[#4A4A4A]'); });
-      (navbar?.querySelector('button') as HTMLElement)?.classList.replace('text-white', 'text-[#1A1A1A]');
-    } else {
-      navbar?.classList.remove('nav-scrolled');
-      navbar?.querySelectorAll('.nav-logo').forEach(el => el.classList.remove('!text-[#1A1A1A]'));
-      navbar?.querySelectorAll('.nav-link').forEach(el => { el.classList.remove('text-[#4A4A4A]'); el.classList.add('text-white/80'); });
-      (navbar?.querySelector('button') as HTMLElement)?.classList.replace('text-[#1A1A1A]', 'text-white');
-    }
-  }, { passive: true });
+  // Navbar
+  const nav = document.getElementById('nav')!;
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
 
-  // ── Mobile menu ──
-  document.getElementById('mobile-toggle')?.addEventListener('click', () => {
-    document.getElementById('mobile-menu')?.classList.toggle('hidden');
-  });
-  document.querySelectorAll('.mobile-link').forEach(l => {
-    l.addEventListener('click', () => document.getElementById('mobile-menu')?.classList.add('hidden'));
-  });
+  // Mobile
+  document.getElementById('burger')!.onclick = () => document.getElementById('mob-menu')!.classList.toggle('hidden');
+  document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => document.getElementById('mob-menu')!.classList.add('hidden')));
 
-  // ── Scroll reveals (includes reveal-stagger) ──
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger').forEach(el => io.observe(el));
+  // Fade-up
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }}), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up, .img-zoom').forEach(el => io.observe(el));
 
-  // ── Counter animation ──
-  const counterIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target as HTMLElement;
-      const target = parseInt(el.dataset.target || '0');
-      let current = 0;
-      const step = Math.max(1, Math.floor(target / 40));
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) { current = target; clearInterval(timer); }
-        el.textContent = current + (target > 1 ? '+' : '');
-      }, 30);
-      counterIO.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
-
-  // ── Before/After slider ──
-  const slider = document.getElementById('ba-slider');
-  const afterEl = document.getElementById('ba-after');
-  const handle = document.getElementById('ba-handle');
-  if (slider && afterEl && handle) {
-    let dragging = false;
-    const move = (x: number) => {
-      const rect = slider.getBoundingClientRect();
-      let pct = ((x - rect.left) / rect.width) * 100;
-      pct = Math.max(2, Math.min(98, pct));
-      afterEl.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-      handle.style.left = pct + '%';
-    };
-    slider.addEventListener('mousedown', (e) => { dragging = true; move(e.clientX); });
-    window.addEventListener('mousemove', (e) => { if (dragging) move(e.clientX); });
-    window.addEventListener('mouseup', () => { dragging = false; });
-    slider.addEventListener('touchstart', (e) => { dragging = true; move(e.touches[0].clientX); }, { passive: true });
-    window.addEventListener('touchmove', (e) => { if (dragging) move(e.touches[0].clientX); });
-    window.addEventListener('touchend', () => { dragging = false; });
-  }
-
-  // ── Hero parallax ──
-  const heroImg = document.querySelector('.hero-parallax') as HTMLElement;
-  if (heroImg) {
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if (y < window.innerHeight) {
-        heroImg.style.transform = `translateY(${y * 0.3}px)`;
-      }
-    }, { passive: true });
+  // Before/After
+  const ba = document.getElementById('ba');
+  const over = document.getElementById('ba-over');
+  const line = document.getElementById('ba-line');
+  if (ba && over && line) {
+    let d = false;
+    const m = (x: number) => { const r = ba.getBoundingClientRect(); let p = Math.max(2, Math.min(98, ((x-r.left)/r.width)*100)); over.style.clipPath = `inset(0 ${100-p}% 0 0)`; line.style.left = p+'%'; };
+    ba.onmousedown = e => { d=true; m(e.clientX); };
+    onmousemove = e => { if(d) m(e.clientX); };
+    onmouseup = () => d=false;
+    ba.addEventListener('touchstart', e => { d=true; m(e.touches[0].clientX); }, { passive: true });
+    addEventListener('touchmove', e => { if(d) m(e.touches[0].clientX); });
+    addEventListener('touchend', () => d=false);
   }
 </script>
