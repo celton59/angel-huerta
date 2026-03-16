@@ -300,6 +300,75 @@ const Gallery = () => {
   );
 };
 
+// --- Testimonios Reales (de Booksy) ---
+const Testimonials = () => {
+  const reviews = [
+    { name: "Miguel Ángel", text: "Siempre perfecto y atento.", date: "Mar 2026" },
+    { name: "Alejandro", text: "Muy profesional.", date: "Mar 2026" },
+    { name: "Lourdes", text: "Ha dejado al niño súper bien, me ha gustado. Buen trato, amable. Gracias.", date: "Feb 2026" },
+    { name: "Benjamin", text: "Buen corte, y trato excelente.", date: "Nov 2025" },
+    { name: "Vanessa", text: "Ángel es un profesional! La primera vez que le hacen el corte que queríamos a mi hijo. Iremos siempre.", date: "Jun 2025" },
+    { name: "Luis", text: "Muy buen profesional.", date: "Jul 2025" },
+  ];
+
+  return (
+    <section className="py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="max-w-xl"
+          >
+            <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">Lo que dicen<br/>nuestros <span className="text-amber-500">clientes</span></h2>
+            <p className="text-slate-500 text-lg border-l-4 border-amber-600 pl-6">5.0 ★ en Booksy · 103 reseñas verificadas</p>
+          </motion.div>
+          <div className="hidden md:block text-slate-300 font-black text-9xl select-none opacity-20 translate-y-8">02</div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reviews.map((review, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all duration-300"
+            >
+              <div className="flex gap-0.5 mb-4">
+                {[1,2,3,4,5].map(s => (
+                  <StarBold key={s} width={16} height={16} className="text-amber-400" />
+                ))}
+              </div>
+              <p className="text-slate-600 leading-relaxed mb-6 italic">"{review.text}"</p>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-amber-600/10 rounded-full flex items-center justify-center text-amber-600 font-black text-sm">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-900 text-sm">{review.name}</p>
+                    <p className="text-slate-400 text-xs">Booksy · {review.date}</p>
+                  </div>
+                </div>
+                <CheckCircleBold width={16} height={16} className="text-green-500" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a href="https://booksy.com/es-es/167979_barberia-y-peluqueria-caballero-y-ninos-angel-huerta_barberia_57248_playa-de-almarda#reviews-section" target="_blank" rel="noopener noreferrer" className="text-amber-600 font-bold hover:underline inline-flex items-center gap-2">
+            Ver todas las reseñas en Booksy <AltArrowRightBold width={16} height={16} />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // --- Sección de Booksy ---
 const BooksySection = () => {
   const booksyUrl = "https://booksy.com/es-es/167979_barberia-y-peluqueria-caballero-y-ninos-angel-huerta_barberia_57248_playa-de-almarda"; 
@@ -477,6 +546,55 @@ const Footer = () => (
   </footer>
 );
 
+// --- Cookie Banner ---
+const CookieBanner = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem('ah_cookie_consent');
+    if (!consent) {
+      const timer = setTimeout(() => setVisible(true), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const accept = (analytics) => {
+    localStorage.setItem('ah_cookie_consent', JSON.stringify({ essential: true, analytics, ts: Date.now() }));
+    setVisible(false);
+  };
+
+  if (!visible) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 100, opacity: 0 }}
+        className="fixed bottom-24 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50"
+      >
+        <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-6">
+          <div className="flex items-start gap-3 mb-4">
+            <span className="text-2xl">🍪</span>
+            <div>
+              <h4 className="font-bold text-slate-900 text-sm mb-1">Utilizamos cookies</h4>
+              <p className="text-slate-500 text-xs leading-relaxed">Usamos cookies esenciales para que la web funcione y opcionales para mejorar tu experiencia.</p>
+            </div>
+          </div>
+          <div className="flex gap-2 justify-end">
+            <button onClick={() => accept(false)} className="px-4 py-2 text-xs font-semibold text-slate-500 hover:bg-slate-50 rounded-full transition">
+              Solo esenciales
+            </button>
+            <button onClick={() => accept(true)} className="px-4 py-2 text-xs font-semibold bg-amber-600 text-white rounded-full hover:bg-amber-700 transition">
+              Aceptar todas
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
 // --- WhatsApp Floating Button ---
 const WhatsAppButton = () => (
   <motion.a
@@ -500,10 +618,12 @@ export default function App() {
       <Hero />
       <Services />
       <Gallery />
+      <Testimonials />
       <BooksySection />
       <ContactSection />
       <Footer />
       <WhatsAppButton />
+      <CookieBanner />
     </div>
   );
 }
