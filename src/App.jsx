@@ -193,9 +193,10 @@ const Hero = () => {
 // --- Servicios ---
 const Services = () => {
   const services = [
-    { title: "Corte Clásico", price: "15€", Icon: ScissorsBold, desc: "Corte a tijera o máquina adaptado a tu estilo. Incluye lavado y acabado perfecto." },
-    { title: "Afeitado Clásico", price: "10€", Icon: StarsBold, desc: "Afeitado tradicional a navaja con toalla caliente y aftershave. Barbería de verdad." },
-    { title: "Corte + Barba", price: "18€", Icon: StarBold, desc: "Corte completo más arreglo de barba en una sola sesión. Entra, relájate, sal nuevo." }
+    { title: "Corte Caballero", price: "12€", Icon: ScissorsBold, desc: "Corte a tijera o máquina adaptado a tu estilo. 20 minutos de atención personalizada." },
+    { title: "Corte + Retoque Barba", price: "12€", Icon: StarsBold, desc: "Corte completo más perfilado y retoque de barba en una sola sesión." },
+    { title: "Degradado", price: "12€", Icon: StarBold, desc: "Degradado limpio y preciso. Skin fade, mid fade o lo que pidas." },
+    { title: "Corte Niños y Bebés", price: "10€", Icon: StarFallBold, desc: "Corte infantil con trato cercano y paciente. Que los peques salgan con su mejor sonrisa." }
   ];
 
   return (
@@ -216,7 +217,7 @@ const Services = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
