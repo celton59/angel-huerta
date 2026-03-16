@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Custom fonts */
+/* ── Fonts ── */
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;
@@ -9,23 +9,166 @@
   src: url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xRbPQ.woff2') format('woff2');
 }
 
+/* ── Variables ── */
 :root {
-  --color-primary: #1a1a1a;
-  --color-accent: #c9a96e;
-  --color-bg: #faf8f5;
-  --color-text: #2d2d2d;
+  --color-nardo: #BBC1C7;
+  --color-blue: #3E76B6;
+  --color-blue-dark: #335f96;
+  --color-black: #1A1A1A;
+  --color-text: #4A4A4A;
+  --color-light: #F5F5F5;
+  --color-border: #E8EAED;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--color-text);
-  background: var(--color-bg);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
 
-.font-display {
-  font-family: 'Playfair Display', Georgia, serif;
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+/* ── Navbar glass ── */
+.nav-scrolled {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 20px rgba(0,0,0,0.06);
 }
+
+/* ── Hero overlay ── */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(26,26,26,0.75) 0%,
+    rgba(26,26,26,0.6) 40%,
+    rgba(26,26,26,0.85) 100%
+  );
+}
+
+/* ── Scroll reveals ── */
+.reveal, .reveal-left, .reveal-right {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal { transform: translateY(30px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal.visible, .reveal-left.visible, .reveal-right.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* ── Hero text animation ── */
+.hero-fade { opacity: 0; transform: translateY(24px); animation: heroIn 0.8s ease forwards; }
+.hero-fade-d1 { animation-delay: 0.1s; }
+.hero-fade-d2 { animation-delay: 0.25s; }
+.hero-fade-d3 { animation-delay: 0.4s; }
+.hero-fade-d4 { animation-delay: 0.55s; }
+@keyframes heroIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Service card hover ── */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border-top: 3px solid transparent;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  border-top-color: var(--color-blue);
+}
+
+/* ── Gallery hover ── */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+}
+.gallery-item img {
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+.gallery-item .gallery-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* ── Before/After slider ── */
+.ba-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: col-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.ba-slider .ba-after {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.ba-slider .ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #fff;
+  cursor: col-resize;
+  z-index: 10;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+.ba-slider .ba-handle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+.ba-slider .ba-handle svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+}
+
+/* ── Testimonial card ── */
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+/* ── Section divider ── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.section-label::before, .section-label::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* ── Counter animation ── */
+.counter { display: inline-block; }
