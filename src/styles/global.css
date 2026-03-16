@@ -1,70 +1,9 @@
 @import "tailwindcss";
-
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400 900;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xRbPQ.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: italic;
-  font-weight: 400 900;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFRD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_qiTbtbK-F2rA0s.woff2') format('woff2');
-}
-
-:root {
-  --blue: #3E76B6;
-  --blue-dark: #2d5a8e;
-  --black: #0f172a;
-  --text: #475569;
-}
+@source "..";
 
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  color: var(--text);
-  background: #fff;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
-/* Animations */
-.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-.fade-in.vis { opacity: 1; transform: none; }
-.fade-in-d1 { transition-delay: 0.15s; }
-.fade-in-d2 { transition-delay: 0.3s; }
-.fade-in-d3 { transition-delay: 0.45s; }
-
-/* Hero image */
-@keyframes heroZoom { from { transform: scale(1.2); opacity: 0; } to { transform: scale(1); opacity: 0.4; } }
-.hero-img { animation: heroZoom 2s ease-out forwards; }
-
-/* Scroll indicator bounce */
-@keyframes bounce { 0%,100% { transform: translateY(0) translateX(-50%); } 50% { transform: translateY(10px) translateX(-50%); } }
-.scroll-ind { animation: bounce 2s infinite; }
-
-/* Service card */
-.svc-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-.svc-card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1); background: #fff; }
-.svc-card .svc-icon { transition: transform 0.3s ease; }
-.svc-card:hover .svc-icon { transform: rotate(6deg); }
-.svc-card .svc-arrow { transition: transform 0.3s ease; }
-.svc-card:hover .svc-arrow { transform: translateX(4px); }
-
-/* Gallery card */
-.gal-card img { transition: transform 1s ease; }
-.gal-card:hover img { transform: scale(1.1); }
-.gal-card .gal-info { transform: translateY(8px); transition: transform 0.4s ease; }
-.gal-card:hover .gal-info { transform: none; }
-
-/* BA slider */
-.ba-wrap { position: relative; overflow: hidden; cursor: col-resize; user-select: none; }
-.ba-wrap .ba-over { position: absolute; inset: 0; }
-.ba-wrap .ba-line { position: absolute; top: 0; bottom: 0; width: 2px; background: #fff; z-index: 10; }
-.ba-wrap .ba-knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 44px; height: 44px; background: #fff; border-radius: 50%; box-shadow: 0 4px 20px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; z-index: 11; }
-
-/* Phone mockup skeleton */
-.skel { background: rgba(255,255,255,0.05); border-radius: 8px; }
