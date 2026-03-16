@@ -16,14 +16,13 @@
 }
 
 :root {
-  --nardo: #BBC1C7;
   --blue: #3E76B6;
-  --black: #1A1A1A;
-  --text: #4A4A4A;
+  --blue-dark: #2d5a8e;
+  --black: #0f172a;
+  --text: #475569;
 }
 
-html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
-
+html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--text);
@@ -32,130 +31,40 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Full-screen snap sections ── */
-.snap-section {
-  min-height: 100vh;
-  min-height: 100dvh;
-  scroll-snap-align: start;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+/* Animations */
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.fade-in.vis { opacity: 1; transform: none; }
+.fade-in-d1 { transition-delay: 0.15s; }
+.fade-in-d2 { transition-delay: 0.3s; }
+.fade-in-d3 { transition-delay: 0.45s; }
 
-/* ── Text reveal animation ── */
-.text-reveal {
-  clip-path: inset(0 100% 0 0);
-  animation: textReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-}
-@keyframes textReveal {
-  to { clip-path: inset(0 0 0 0); }
-}
-.text-reveal-d1 { animation-delay: 0.2s; }
-.text-reveal-d2 { animation-delay: 0.5s; }
-.text-reveal-d3 { animation-delay: 0.8s; }
+/* Hero image */
+@keyframes heroZoom { from { transform: scale(1.2); opacity: 0; } to { transform: scale(1); opacity: 0.4; } }
+.hero-img { animation: heroZoom 2s ease-out forwards; }
 
-/* ── Fade up ── */
-.fade-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: none;
-}
-.fade-up-d1 { transition-delay: 0.1s; }
-.fade-up-d2 { transition-delay: 0.2s; }
-.fade-up-d3 { transition-delay: 0.3s; }
-.fade-up-d4 { transition-delay: 0.4s; }
+/* Scroll indicator bounce */
+@keyframes bounce { 0%,100% { transform: translateY(0) translateX(-50%); } 50% { transform: translateY(10px) translateX(-50%); } }
+.scroll-ind { animation: bounce 2s infinite; }
 
-/* ── Horizontal scroll gallery ── */
-.h-scroll {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding: 0 5vw;
-}
-.h-scroll::-webkit-scrollbar { display: none; }
-.h-scroll > * {
-  scroll-snap-align: center;
-  flex-shrink: 0;
-}
+/* Service card */
+.svc-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.svc-card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1); background: #fff; }
+.svc-card .svc-icon { transition: transform 0.3s ease; }
+.svc-card:hover .svc-icon { transform: rotate(6deg); }
+.svc-card .svc-arrow { transition: transform 0.3s ease; }
+.svc-card:hover .svc-arrow { transform: translateX(4px); }
 
-/* ── Marquee ── */
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 25s linear infinite;
-}
-@keyframes marquee {
-  to { transform: translateX(-50%); }
-}
+/* Gallery card */
+.gal-card img { transition: transform 1s ease; }
+.gal-card:hover img { transform: scale(1.1); }
+.gal-card .gal-info { transform: translateY(8px); transition: transform 0.4s ease; }
+.gal-card:hover .gal-info { transform: none; }
 
-/* ── Split image zoom on scroll ── */
-.img-zoom img {
-  transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.img-zoom.visible img {
-  transform: scale(1.08);
-}
+/* BA slider */
+.ba-wrap { position: relative; overflow: hidden; cursor: col-resize; user-select: none; }
+.ba-wrap .ba-over { position: absolute; inset: 0; }
+.ba-wrap .ba-line { position: absolute; top: 0; bottom: 0; width: 2px; background: #fff; z-index: 10; }
+.ba-wrap .ba-knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 44px; height: 44px; background: #fff; border-radius: 50%; box-shadow: 0 4px 20px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; z-index: 11; }
 
-/* ── Navbar ── */
-.nav-glass {
-  background: rgba(255,255,255,0.0);
-  transition: all 0.4s ease;
-}
-.nav-glass.scrolled {
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 30px rgba(0,0,0,0.06);
-}
-.nav-glass.scrolled .nav-white { color: var(--black) !important; }
-
-/* ── Big number ── */
-.big-num {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 900;
-  font-size: clamp(5rem, 12vw, 10rem);
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-}
-
-/* ── Before/After ── */
-.ba-wrap {
-  position: relative;
-  overflow: hidden;
-  cursor: col-resize;
-  user-select: none;
-}
-.ba-wrap .ba-over {
-  position: absolute;
-  inset: 0;
-}
-.ba-wrap .ba-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: #fff;
-  z-index: 10;
-}
-.ba-wrap .ba-knob {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 44px;
-  height: 44px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 11;
-}
+/* Phone mockup skeleton */
+.skel { background: rgba(255,255,255,0.05); border-radius: 8px; }
