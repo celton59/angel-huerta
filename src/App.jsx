@@ -301,7 +301,7 @@ const Gallery = () => {
 
 // --- Sección de Booksy ---
 const BooksySection = () => {
-  const booksyUrl = "https://booksy.com/"; 
+  const booksyUrl = "https://booksy.com/es-es/167979_barberia-y-peluqueria-caballero-y-ninos-angel-huerta_barberia_57248_playa-de-almarda"; 
 
   return (
     <section id="reservar" className="py-32 bg-slate-50 relative overflow-hidden">
