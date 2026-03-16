@@ -193,10 +193,10 @@ const Hero = () => {
 // --- Servicios ---
 const Services = () => {
   const services = [
-    { title: "Corte Caballero", price: "12€", Icon: ScissorsBold, desc: "Corte a tijera o máquina adaptado a tu estilo. 20 minutos de atención personalizada." },
-    { title: "Corte + Retoque Barba", price: "12€", Icon: StarsBold, desc: "Corte completo más perfilado y retoque de barba en una sola sesión." },
-    { title: "Degradado", price: "12€", Icon: StarBold, desc: "Degradado limpio y preciso. Skin fade, mid fade o lo que pidas." },
-    { title: "Corte Niños y Bebés", price: "10€", Icon: StarFallBold, desc: "Corte infantil con trato cercano y paciente. Que los peques salgan con su mejor sonrisa." }
+    { title: "Corte Caballero", price: "12€", icon: "✂️", desc: "Corte a tijera o máquina adaptado a tu estilo. 20 minutos de atención personalizada." },
+    { title: "Corte + Retoque Barba", price: "12€", icon: "🪒", desc: "Corte completo más perfilado y retoque de barba en una sola sesión." },
+    { title: "Degradado", price: "12€", icon: "💈", desc: "Degradado limpio y preciso. Skin fade, mid fade o lo que pidas." },
+    { title: "Corte Niños y Bebés", price: "10€", icon: "👦", desc: "Corte infantil con trato cercano y paciente. Que los peques salgan con su mejor sonrisa." }
   ];
 
   return (
@@ -226,14 +226,14 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
               whileHover={{ y: -15 }}
-              className="group p-12 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500"
+              className="group flex flex-col p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500"
             >
-              <div className="w-16 h-16 bg-amber-600 text-white rounded-2xl flex items-center justify-center mb-10 shadow-lg shadow-amber-600/20 group-hover:rotate-6 transition-transform">
-                <service.Icon width={32} height={32} />
+              <div className="w-20 h-20 bg-amber-600/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <span className="text-4xl">{service.icon}</span>
               </div>
-              <h3 className="text-2xl font-black text-slate-900 mb-4">{service.title}</h3>
-              <p className="text-slate-500 mb-10 leading-relaxed font-medium">{service.desc}</p>
-              <div className="flex items-center justify-between">
+              <h3 className="text-xl font-black text-slate-900 mb-3 min-h-[56px] flex items-start">{service.title}</h3>
+              <p className="text-slate-500 leading-relaxed font-medium text-sm flex-1">{service.desc}</p>
+              <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
                 <span className="text-4xl font-black text-slate-900">{service.price}</span>
                 <a href="#reservar">
                     <motion.button 
