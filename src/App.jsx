@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Scissors, 
-  Star, 
-  Phone, 
-  MapPin, 
-  Clock, 
-  Instagram, 
-  Facebook, 
-  Twitter, 
-  Menu, 
-  X, 
-  ChevronRight,
-  Sparkles,
-  ExternalLink,
-  CheckCircle2,
-  Mail
-} from 'lucide-react';
+  ScissorsBold,
+  StarBold,
+  PhoneBold,
+  MapPointBold,
+  ClockCircleBold,
+  HamburgerMenuBold,
+  CloseCircleBold,
+  AltArrowRightBold,
+  StarFallBold,
+  LinkRoundBold,
+  CheckCircleBold,
+  LetterBold,
+  StarsBold,
+} from 'solar-icon-set';
 
 // --- Componentes de UI Reutilizables ---
 const Button = ({ children, className = "", variant = "primary", ...props }) => {
@@ -62,7 +60,7 @@ const Navbar = () => {
             whileHover={{ rotate: 180 }}
             className="bg-amber-600 p-2 rounded-lg"
           >
-            <Scissors className="text-white w-5 h-5" />
+            <ScissorsBold className="text-white" width={20} height={20} />
           </motion.div>
           <span className={`text-xl font-black tracking-tighter ${scrolled ? 'text-slate-900' : 'text-white'}`}>
             ELEGANCE
@@ -85,7 +83,10 @@ const Navbar = () => {
         </div>
 
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className={scrolled ? 'text-slate-900' : 'text-white'} /> : <Menu className={scrolled ? 'text-slate-900' : 'text-white'} />}
+          {isOpen 
+            ? <CloseCircleBold className={scrolled ? 'text-slate-900' : 'text-white'} width={24} height={24} /> 
+            : <HamburgerMenuBold className={scrolled ? 'text-slate-900' : 'text-white'} width={24} height={24} />
+          }
         </button>
       </div>
 
@@ -135,7 +136,7 @@ const Hero = () => {
           transition={{ delay: 0.5 }}
           className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-500 px-4 py-1 rounded-full text-xs font-black mb-8 tracking-[0.2em]"
         >
-          <Sparkles size={14} /> EXCELENCIA DESDE 2015
+          <StarFallBold width={14} height={14} /> EXCELENCIA DESDE 2015
         </motion.div>
         
         <motion.h1 
@@ -165,7 +166,7 @@ const Hero = () => {
         >
           <a href="#reservar">
             <Button variant="primary" className="h-16 px-10 text-lg group">
-                RESERVAR CITA <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                RESERVAR CITA <AltArrowRightBold width={20} height={20} className="group-hover:translate-x-1 transition-transform" />
             </Button>
           </a>
           <a href="#servicios">
@@ -192,9 +193,9 @@ const Hero = () => {
 // --- Servicios ---
 const Services = () => {
   const services = [
-    { title: "Corte Elegance", price: "25€", icon: Scissors, desc: "Lavado terapéutico, corte a medida y asesoramiento de imagen." },
-    { title: "Ritual de Barba", price: "18€", icon: Sparkles, desc: "Afeitado tradicional con navaja, toalla caliente y aceites premium." },
-    { title: "Experiencia Total", price: "40€", icon: Star, desc: "Corte, barba y tratamiento facial revitalizante. El pack completo." }
+    { title: "Corte Elegance", price: "25€", Icon: ScissorsBold, desc: "Lavado terapéutico, corte a medida y asesoramiento de imagen." },
+    { title: "Ritual de Barba", price: "18€", Icon: StarsBold, desc: "Afeitado tradicional con navaja, toalla caliente y aceites premium." },
+    { title: "Experiencia Total", price: "40€", Icon: StarBold, desc: "Corte, barba y tratamiento facial revitalizante. El pack completo." }
   ];
 
   return (
@@ -227,7 +228,7 @@ const Services = () => {
               className="group p-12 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500"
             >
               <div className="w-16 h-16 bg-amber-600 text-white rounded-2xl flex items-center justify-center mb-10 shadow-lg shadow-amber-600/20 group-hover:rotate-6 transition-transform">
-                <service.icon size={32} />
+                <service.Icon width={32} height={32} />
               </div>
               <h3 className="text-2xl font-black text-slate-900 mb-4">{service.title}</h3>
               <p className="text-slate-500 mb-10 leading-relaxed font-medium">{service.desc}</p>
@@ -238,7 +239,7 @@ const Services = () => {
                       whileHover={{ x: 5 }}
                       className="bg-slate-900 text-white p-4 rounded-full"
                     >
-                      <ChevronRight size={20} />
+                      <AltArrowRightBold width={20} height={20} />
                     </motion.button>
                 </a>
               </div>
@@ -335,7 +336,7 @@ const BooksySection = () => {
                     "Promociones exclusivas"
                 ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 text-slate-300">
-                        <CheckCircle2 size={18} className="text-amber-500" />
+                        <CheckCircleBold width={18} height={18} className="text-amber-500" />
                         <span className="font-medium">{item}</span>
                     </div>
                 ))}
@@ -348,7 +349,7 @@ const BooksySection = () => {
                 whileHover={{ scale: 1.05 }}
                 className="inline-flex items-center justify-center gap-3 bg-amber-600 text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-amber-700 transition-all shadow-xl shadow-amber-900/40"
               >
-                RESERVAR AHORA <ExternalLink size={20} />
+                RESERVAR AHORA <LinkRoundBold width={20} height={20} />
               </motion.a>
             </div>
 
@@ -376,7 +377,7 @@ const BooksySection = () => {
   );
 };
 
-// --- Sección de Contacto e Integración con Google Maps ---
+// --- Sección de Contacto ---
 const ContactSection = () => {
   return (
     <section id="contacto" className="py-32 bg-white">
@@ -392,7 +393,7 @@ const ContactSection = () => {
             <div className="grid sm:grid-cols-2 gap-6 mt-12">
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
                 <div className="w-12 h-12 bg-amber-600/10 text-amber-600 rounded-xl flex items-center justify-center mb-6">
-                  <MapPin size={24} />
+                  <MapPointBold width={24} height={24} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Ubicación</h4>
                 <p className="text-slate-600 font-medium">Calle del Estilo 45, <br/>28001 Madrid, España</p>
@@ -400,7 +401,7 @@ const ContactSection = () => {
 
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
                 <div className="w-12 h-12 bg-amber-600/10 text-amber-600 rounded-xl flex items-center justify-center mb-6">
-                  <Clock size={24} />
+                  <ClockCircleBold width={24} height={24} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Horario</h4>
                 <ul className="text-slate-600 font-medium text-sm space-y-1">
@@ -412,7 +413,7 @@ const ContactSection = () => {
 
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
                 <div className="w-12 h-12 bg-amber-600/10 text-amber-600 rounded-xl flex items-center justify-center mb-6">
-                  <Phone size={24} />
+                  <PhoneBold width={24} height={24} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Llámanos</h4>
                 <p className="text-slate-600 font-bold text-lg">+34 912 345 678</p>
@@ -420,7 +421,7 @@ const ContactSection = () => {
 
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
                 <div className="w-12 h-12 bg-amber-600/10 text-amber-600 rounded-xl flex items-center justify-center mb-6">
-                  <Mail size={24} />
+                  <LetterBold width={24} height={24} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Email</h4>
                 <p className="text-slate-600 font-medium text-sm">contacto@elegance.com</p>
@@ -457,26 +458,14 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 border-b border-white/5 pb-16 mb-12 text-center md:text-left">
       <div>
         <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-          <Scissors className="text-amber-500" size={32} />
+          <ScissorsBold className="text-amber-500" width={32} height={32} />
           <span className="text-3xl font-black tracking-tighter">ELEGANCE</span>
         </div>
         <p className="text-slate-500 max-w-sm">Elevando el estándar de la barbería clásica. Tu estilo es nuestra firma.</p>
       </div>
       <div className="flex flex-col items-center md:items-end gap-6">
-        <div className="flex gap-4">
-            {[Instagram, Facebook, Twitter].map((Icon, i) => (
-            <motion.a 
-                key={i} 
-                href="#" 
-                whileHover={{ y: -5, color: '#f59e0b' }}
-                className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-slate-400"
-            >
-                <Icon size={24} />
-            </motion.a>
-            ))}
-        </div>
         <div className="flex items-center gap-2 text-slate-500 text-xs font-bold tracking-widest uppercase">
-            <MapPin size={14} className="text-amber-500" />
+            <MapPointBold width={14} height={14} className="text-amber-500" />
             <span>MADRID, ESPAÑA</span>
         </div>
       </div>
