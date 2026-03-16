@@ -480,7 +480,7 @@ const Footer = () => (
 // --- WhatsApp Floating Button ---
 const WhatsAppButton = () => (
   <motion.a
-    href="https://wa.me/34656409027"
+    href="https://wa.me/34656409027?text=Hola%2C%20quer%C3%ADa%20pedir%20cita%20para%20la%20barber%C3%ADa"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Contactar por WhatsApp"
