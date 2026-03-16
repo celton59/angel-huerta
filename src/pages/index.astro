@@ -8,15 +8,16 @@ import Layout from '../layouts/Layout.astro';
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/40 backdrop-blur-sm">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#" class="flex items-center gap-2">
-        <svg class="w-6 h-6 text-[var(--color-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M14.121 14.121A3 3 0 1 0 9.88 9.88M7.05 7.05l9.9 9.9M16.95 7.05l-9.9 9.9"/></svg>
+        <svg class="w-6 h-6 text-[var(--color-blue)] scissors-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M14.121 14.121A3 3 0 1 0 9.88 9.88M7.05 7.05l9.9 9.9M16.95 7.05l-9.9 9.9"/></svg>
         <span class="font-display text-xl font-bold text-white nav-logo tracking-wide">ÁNGEL HUERTA</span>
       </a>
       <div class="hidden md:flex items-center gap-8">
         <a href="#servicios" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Servicios</a>
         <a href="#sobre-mi" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Sobre mí</a>
         <a href="#galeria" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Galería</a>
+        <a href="#testimonios" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Opiniones</a>
         <a href="#contacto" class="text-sm text-white/80 hover:text-white transition-colors nav-link">Contacto</a>
-        <a href="#reservar" class="bg-[var(--color-blue)] text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-[var(--color-blue-dark)] transition-all shadow-lg shadow-[var(--color-blue)]/20 flex items-center gap-1.5">
+        <a href="#reservar" class="nav-cta bg-[var(--color-blue)] text-white px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg shadow-[var(--color-blue)]/20 flex items-center gap-1.5">
           Reservar Cita <span class="text-xs">→</span>
         </a>
       </div>
@@ -29,6 +30,7 @@ import Layout from '../layouts/Layout.astro';
         <a href="#servicios" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Servicios</a>
         <a href="#sobre-mi" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Sobre mí</a>
         <a href="#galeria" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Galería</a>
+        <a href="#testimonios" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Opiniones</a>
         <a href="#contacto" class="text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors py-2 mobile-link">Contacto</a>
         <a href="#reservar" class="bg-[var(--color-blue)] text-white px-6 py-3 rounded-full font-semibold text-sm text-center mt-2 mobile-link">Reservar Cita</a>
       </div>
@@ -36,20 +38,25 @@ import Layout from '../layouts/Layout.astro';
   </nav>
 
 
-  <!-- ═══════════ HERO — foto de fondo ═══════════ -->
+  <!-- ═══════════ HERO ═══════════ -->
   <section class="relative min-h-screen flex items-center">
-    <img src="/img/hero-bg.jpg" alt="Barbería Ángel Huerta" class="absolute inset-0 w-full h-full object-cover" loading="eager" />
+    <img src="/img/hero-bg.jpg" alt="Barbería Ángel Huerta" class="absolute inset-0 w-full h-full object-cover hero-parallax" loading="eager" />
     <div class="hero-overlay absolute inset-0"></div>
+
+    <!-- Deco circles -->
+    <div class="deco-circle w-[500px] h-[500px] -top-40 -right-40" style="position:absolute;"></div>
+    <div class="deco-circle w-[300px] h-[300px] bottom-20 left-10" style="position:absolute;"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
       <div class="max-w-2xl">
-        <div class="hero-fade hero-fade-d1 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8">
+        <!-- Badge with animated glow border -->
+        <div class="hero-fade hero-fade-d1 badge-glow inline-flex items-center gap-2 px-5 py-2 mb-8 rounded-full">
           <svg class="w-4 h-4 text-[var(--color-blue)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           <span class="text-sm text-white/90 font-medium">Puerto de Sagunto, Valencia</span>
         </div>
 
         <h1 class="hero-fade hero-fade-d2 font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.05] mb-6">
-          Tu barbero<br/>de confianza
+          Tu barbero<br/>de <em class="italic text-[var(--color-blue)]">confianza</em>
         </h1>
 
         <p class="hero-fade hero-fade-d3 text-white/70 text-lg md:text-xl max-w-lg mb-10 leading-relaxed">
@@ -57,16 +64,16 @@ import Layout from '../layouts/Layout.astro';
         </p>
 
         <div class="hero-fade hero-fade-d4 flex flex-col sm:flex-row gap-4 items-start">
-          <a href="#reservar" class="bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-[var(--color-blue-dark)] transition-all shadow-lg shadow-[var(--color-blue)]/30 flex items-center gap-2">
+          <a href="#reservar" class="btn-shimmer bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm flex items-center gap-2">
             Reservar Cita <span>→</span>
           </a>
-          <a href="#servicios" class="border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-white/10 transition-all">
+          <a href="#servicios" class="btn-ghost border border-white/30 text-white px-8 py-4 rounded-full font-semibold text-sm">
             Ver Servicios
           </a>
         </div>
 
         <!-- Rating -->
-        <div class="hero-fade hero-fade-d4 mt-8 flex items-center gap-3">
+        <div class="hero-fade hero-fade-d5 mt-8 flex items-center gap-3">
           <div class="flex gap-0.5">
             {[1,2,3,4,5].map(() => (
               <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
@@ -102,21 +109,74 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 
-  <!-- ═══════════ ANTES / DESPUÉS — slider ═══════════ -->
-  <section class="py-20 md:py-28 px-6 bg-white">
-    <div class="max-w-4xl mx-auto">
+  <!-- ═══════════ SERVICIOS (01) ═══════════ -->
+  <section id="servicios" class="relative py-20 md:py-28 px-6 bg-[var(--color-light)] overflow-hidden">
+    <!-- Section number decorativo -->
+    <span class="section-number top-4 right-6">01</span>
+    <!-- Deco circles -->
+    <div class="deco-circle w-[200px] h-[200px] -top-20 -left-20"></div>
+    <div class="deco-circle w-[350px] h-[350px] -bottom-40 -right-32"></div>
+
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="text-center mb-16 reveal">
+        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Servicios</span>
+        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Nuestros <em>servicios</em></h2>
+        <p class="text-[var(--color-text)] text-lg max-w-md mx-auto">Todo lo que necesitas en un solo sitio, con la calidad de siempre</p>
+      </div>
+
+      <div class="reveal-stagger space-y-0">
+        {[
+          { title: 'Corte Clásico', price: '15€', desc: 'Corte tradicional a tijera con acabado perfecto' },
+          { title: 'Degradado', price: '14€', desc: 'Skin fade, mid fade o high fade adaptado a tu estilo' },
+          { title: 'Afeitado Clásico', price: '10€', desc: 'Navaja con toalla caliente. Experiencia de barbería clásica' },
+          { title: 'Arreglo de Barba', price: '8€', desc: 'Perfilado, recorte y cuidado de barba' },
+          { title: 'Corte + Barba', price: '18€', desc: 'El servicio completo en una sola sesión' },
+          { title: 'Tratamiento Capilar', price: 'Consultar', desc: 'Tratamientos personalizados para la salud de tu cabello' },
+        ].map(({ title, price, desc }) => (
+          <div class="service-row py-5 px-2 flex items-baseline rounded-lg">
+            <div class="shrink-0">
+              <h3 class="text-lg font-bold text-[var(--color-black)]">{title}</h3>
+              <p class="text-sm text-[var(--color-text)] mt-0.5">{desc}</p>
+            </div>
+            <span class="service-dot-line"></span>
+            <span class="text-xl font-bold text-[var(--color-blue)] shrink-0 font-display">{price}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-14 reveal">
+        <a href="#reservar" class="btn-shimmer inline-flex items-center gap-2 bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm">
+          Reservar Cita <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Wave divider: light → white -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C360,0 720,40 1080,10 C1260,-5 1380,20 1440,30 L1440,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+
+  <!-- ═══════════ ANTES / DESPUÉS (02) ═══════════ -->
+  <section class="relative py-20 md:py-28 px-6 bg-white overflow-hidden">
+    <span class="section-number top-4 left-6">02</span>
+    <div class="deco-circle w-[250px] h-[250px] top-10 -right-24"></div>
+
+    <div class="max-w-4xl mx-auto relative z-10">
       <div class="text-center mb-14 reveal">
-        <div class="section-label">
-          <span class="text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Resultados</span>
-        </div>
-        <h2 class="font-display text-3xl md:text-5xl text-[var(--color-black)] font-bold mb-4">El resultado habla por sí solo</h2>
+        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Resultados</span>
+        <h2 class="heading-xl text-3xl md:text-5xl mb-4">El resultado habla <em>por sí solo</em></h2>
         <p class="text-[var(--color-text)] text-lg">Arrastra para comparar el antes y después</p>
       </div>
 
       <div class="ba-slider reveal" id="ba-slider" style="aspect-ratio: 4/3;">
-        <!-- Before (full width background) -->
+        <!-- Before -->
         <img src="/img/before.jpg" alt="Antes" class="w-full h-full object-cover" />
-        <!-- After (clipped) -->
+        <!-- After -->
         <div class="ba-after" id="ba-after" style="clip-path: inset(0 50% 0 0);">
           <img src="/img/after.jpg" alt="Después" class="w-full h-full object-cover" />
         </div>
@@ -125,13 +185,13 @@ import Layout from '../layouts/Layout.astro';
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3E76B6" stroke-width="2.5" stroke-linecap="round"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg>
         </div>
         <!-- Labels -->
-        <span class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full z-20">ANTES</span>
-        <span class="absolute top-4 right-4 bg-[var(--color-blue)] text-white text-xs font-semibold px-3 py-1.5 rounded-full z-20">DESPUÉS</span>
+        <span class="ba-label absolute top-4 left-4 text-white text-xs font-semibold px-3 py-1.5 rounded-full z-20">ANTES</span>
+        <span class="ba-label absolute top-4 right-4 text-white text-xs font-semibold px-3 py-1.5 rounded-full z-20 !bg-[var(--color-blue)]">DESPUÉS</span>
       </div>
 
       <div class="text-center mt-14 reveal">
         <p class="text-[var(--color-black)] text-xl md:text-2xl font-display font-bold mb-6">¿Quieres estos resultados?</p>
-        <a href="#reservar" class="inline-flex items-center gap-2 bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-[var(--color-blue-dark)] transition-all shadow-lg shadow-[var(--color-blue)]/20">
+        <a href="#reservar" class="btn-shimmer inline-flex items-center gap-2 bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm">
           Reserva tu cita <span>→</span>
         </a>
       </div>
@@ -139,49 +199,21 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 
-  <!-- ═══════════ SERVICIOS ═══════════ -->
-  <section id="servicios" class="py-20 md:py-28 px-6 bg-[var(--color-light)]">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14 reveal">
-        <div class="section-label">
-          <span class="text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Servicios</span>
-        </div>
-        <h2 class="font-display text-3xl md:text-5xl text-[var(--color-black)] font-bold mb-4">Nuestros servicios</h2>
-        <p class="text-[var(--color-text)] text-lg">Todo lo que necesitas en un solo sitio</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          { d: 'M14.121 14.121A3 3 0 109.88 9.88m4.243 4.243L7.05 7.05m9.9 9.9L7.05 7.05m9.9 9.9L16.95 7.05l-9.9 9.9', title: 'Corte Clásico', price: '15€', desc: 'Corte tradicional a tijera con acabado perfecto. La esencia de la barbería de toda la vida.' },
-          { d: 'M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z', title: 'Degradado', price: '14€', desc: 'Degradados limpios y precisos. Del skin fade al mid fade, adaptado a tu estilo.' },
-          { d: 'M3 6l3 1m0 0l-3 9a5 5 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3', title: 'Afeitado Clásico', price: '10€', desc: 'Afeitado a navaja con toalla caliente. Una experiencia clásica de barbería.' },
-          { d: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z', title: 'Arreglo de Barba', price: '8€', desc: 'Perfilado, recorte y cuidado de barba. Dale forma y estilo.' },
-          { d: 'M14.121 14.121A3 3 0 109.88 9.88M12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z', title: 'Corte + Barba', price: '18€', desc: 'El servicio completo. Corte y barba en una sola sesión.' },
-          { d: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z', title: 'Tratamiento Capilar', price: 'Consultar', desc: 'Tratamientos personalizados para la salud de tu cabello.' },
-        ].map(({ d, title, price, desc }) => (
-          <div class="service-card bg-white rounded-2xl p-7 shadow-sm border border-[var(--color-border)] reveal">
-            <div class="w-12 h-12 bg-[var(--color-blue)]/10 rounded-xl flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-[var(--color-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d={d}/></svg>
-            </div>
-            <div class="flex items-baseline justify-between mb-2">
-              <h3 class="text-lg font-bold text-[var(--color-black)]">{title}</h3>
-              <span class="bg-[var(--color-blue)]/10 text-[var(--color-blue)] text-sm font-bold px-3 py-1 rounded-lg">{price}</span>
-            </div>
-            <p class="text-[var(--color-text)] text-sm leading-relaxed">{desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- Line separator -->
+  <div class="line-separator max-w-6xl mx-auto"></div>
 
 
-  <!-- ═══════════ SOBRE ÁNGEL ═══════════ -->
-  <section id="sobre-mi" class="py-20 md:py-28 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
+  <!-- ═══════════ SOBRE ÁNGEL (03) ═══════════ -->
+  <section id="sobre-mi" class="relative py-20 md:py-28 px-6 bg-white overflow-hidden">
+    <span class="section-number -top-2 right-6">03</span>
+    <div class="deco-circle w-[400px] h-[400px] -bottom-48 -left-32"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
       <div class="grid md:grid-cols-12 gap-12 items-center">
+        <!-- Foto con partial-border -->
         <div class="md:col-span-5 reveal-left">
           <div class="relative">
-            <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
+            <div class="partial-border-tl partial-border-br aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
               <img src="/img/barber-portrait.jpg" alt="Ángel Huerta, barbero profesional en Puerto de Sagunto" class="w-full h-full object-cover" loading="lazy" />
             </div>
             <div class="absolute -bottom-4 -right-4 bg-[var(--color-blue)] text-white px-5 py-3 rounded-xl shadow-lg">
@@ -192,10 +224,8 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <div class="md:col-span-7 reveal-right">
-          <div class="section-label justify-start">
-            <span class="text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Sobre mí</span>
-          </div>
-          <h2 class="font-display text-3xl md:text-5xl text-[var(--color-black)] font-bold mb-8">Ángel Huerta</h2>
+          <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Sobre mí</span>
+          <h2 class="heading-xl text-3xl md:text-5xl mb-8">Ángel <em>Huerta</em></h2>
 
           <p class="text-[var(--color-text)] leading-relaxed mb-5 text-lg">
             Llevo más de 40 años detrás de la silla de barbero. Empecé siendo un chaval en Puerto de Sagunto y aquí sigo, haciendo lo que más me gusta: que cada cliente salga sintiéndose mejor.
@@ -211,17 +241,18 @@ import Layout from '../layouts/Layout.astro';
             </p>
           </blockquote>
 
+          <!-- Stats con stat-number -->
           <div class="grid grid-cols-3 gap-6">
             <div>
-              <p class="font-display text-3xl md:text-4xl text-[var(--color-blue)] font-bold counter" data-target="40">0</p>
+              <p class="stat-number text-3xl md:text-4xl text-[var(--color-blue)] counter" data-target="40">0</p>
               <p class="text-[var(--color-text)] text-sm mt-1">años de oficio</p>
             </div>
             <div>
-              <p class="font-display text-3xl md:text-4xl text-[var(--color-blue)] font-bold">Miles</p>
+              <p class="stat-number text-3xl md:text-4xl text-[var(--color-blue)]">Miles</p>
               <p class="text-[var(--color-text)] text-sm mt-1">de clientes</p>
             </div>
             <div>
-              <p class="font-display text-3xl md:text-4xl text-[var(--color-blue)] font-bold counter" data-target="1">0</p>
+              <p class="stat-number text-3xl md:text-4xl text-[var(--color-blue)] counter" data-target="1">0</p>
               <p class="text-[var(--color-text)] text-sm mt-1">pasión</p>
             </div>
           </div>
@@ -231,82 +262,169 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 
-  <!-- ═══════════ TESTIMONIOS ═══════════ -->
-  <section class="py-20 md:py-28 px-6 bg-[var(--color-nardo)]">
-    <div class="max-w-6xl mx-auto">
+  <!-- Wave divider: white → nardo -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="var(--color-nardo)"/>
+    </svg>
+  </div>
+
+
+  <!-- ═══════════ TESTIMONIOS (04) ═══════════ -->
+  <section id="testimonios" class="relative py-20 md:py-28 px-6 bg-[var(--color-nardo)] overflow-hidden">
+    <span class="section-number top-4 left-6">04</span>
+    <div class="deco-circle w-[300px] h-[300px] top-20 -right-32"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
       <div class="text-center mb-14 reveal">
-        <div class="section-label">
-          <span class="text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Opiniones</span>
-        </div>
-        <h2 class="font-display text-3xl md:text-5xl text-[var(--color-black)] font-bold mb-4">Lo que dicen nuestros clientes</h2>
+        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mx-auto">Opiniones</span>
+        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Lo que dicen nuestros <em>clientes</em></h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        {[
-          { img: '/img/avatar-1.jpg', text: 'Llevo yendo a Ángel más de 15 años. No cambio de barbero ni loco. Es un crack con las tijeras.', name: 'Carlos M.', years: 'Cliente desde 2011' },
-          { img: '/img/avatar-2.jpg', text: 'Mi padre ya iba con él. Ahora voy yo con mis hijos. Tres generaciones en la misma silla.', name: 'David R.', years: 'Cliente desde 2018' },
-          { img: '/img/avatar-3.jpg', text: 'El mejor degradado de todo Puerto de Sagunto, sin discusión. Y encima buen tío.', name: 'Javier L.', years: 'Cliente desde 2020' },
-        ].map(({ img, text, name, years }) => (
-          <div class="testimonial-card bg-white rounded-2xl p-7 shadow-sm reveal">
+      <!-- 1 featured + 2 small layout -->
+      <div class="grid md:grid-cols-2 gap-6 reveal">
+        <!-- Featured testimonial -->
+        <div class="testimonial-featured bg-white rounded-2xl p-8 md:p-10 shadow-sm relative overflow-hidden dot-pattern">
+          <span class="quote-mark top-4 left-6">"</span>
+          <div class="relative z-10">
+            <div class="flex gap-1 mb-6">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              ))}
+            </div>
+            <p class="text-[var(--color-text)] text-lg italic leading-relaxed mb-8 font-display">
+              "Llevo yendo a Ángel más de 15 años. No cambio de barbero ni loco. Es un crack con las tijeras y siempre sabe lo que quiero antes de que se lo diga."
+            </p>
+            <div class="flex items-center gap-4">
+              <img src="/img/avatar-1.jpg" alt="Carlos M." class="w-14 h-14 rounded-full object-cover" loading="lazy" />
+              <div>
+                <p class="font-bold text-[var(--color-black)] text-lg">Carlos M.</p>
+                <p class="text-sm text-[var(--color-text)]">Cliente desde 2011</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 small testimonials stacked -->
+        <div class="flex flex-col gap-6">
+          <div class="testimonial-small bg-white rounded-2xl p-7 shadow-sm">
             <div class="flex gap-1 mb-4">
               {[1,2,3,4,5].map(() => (
                 <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
               ))}
             </div>
-            <p class="text-[var(--color-text)] italic leading-relaxed mb-6">"{text}"</p>
+            <p class="text-[var(--color-text)] italic leading-relaxed mb-5">"Mi padre ya iba con él. Ahora voy yo con mis hijos. Tres generaciones en la misma silla."</p>
             <div class="flex items-center gap-3">
-              <img src={img} alt={name} class="w-10 h-10 rounded-full object-cover" loading="lazy" />
+              <img src="/img/avatar-2.jpg" alt="David R." class="w-10 h-10 rounded-full object-cover" loading="lazy" />
               <div>
-                <p class="text-sm font-bold text-[var(--color-black)]">{name}</p>
-                <p class="text-xs text-[var(--color-text)]">{years}</p>
+                <p class="text-sm font-bold text-[var(--color-black)]">David R.</p>
+                <p class="text-xs text-[var(--color-text)]">Cliente desde 2018</p>
               </div>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
 
-
-  <!-- ═══════════ GALERÍA ═══════════ -->
-  <section id="galeria" class="py-20 md:py-28 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14 reveal">
-        <div class="section-label">
-          <span class="text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Portfolio</span>
-        </div>
-        <h2 class="font-display text-3xl md:text-5xl text-[var(--color-black)] font-bold mb-4">Nuestro trabajo</h2>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 reveal">
-        {[
-          { src: '/img/gallery-1.jpg', span: 'md:row-span-2', aspect: 'aspect-[3/4]' },
-          { src: '/img/gallery-2.jpg', span: '', aspect: 'aspect-square' },
-          { src: '/img/gallery-3.jpg', span: '', aspect: 'aspect-square' },
-          { src: '/img/gallery-4.jpg', span: '', aspect: 'aspect-square' },
-          { src: '/img/gallery-5.jpg', span: '', aspect: 'aspect-square' },
-          { src: '/img/gallery-6.jpg', span: '', aspect: 'aspect-square' },
-        ].map(({ src, span, aspect }) => (
-          <div class={`gallery-item ${span} relative`}>
-            <img src={src} alt="Trabajo de Ángel Huerta" class={`w-full h-full object-cover ${aspect}`} loading="lazy" />
-            <div class="gallery-overlay absolute inset-0 bg-black/30 flex items-center justify-center rounded-xl">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+          <div class="testimonial-small bg-white rounded-2xl p-7 shadow-sm">
+            <div class="flex gap-1 mb-4">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              ))}
+            </div>
+            <p class="text-[var(--color-text)] italic leading-relaxed mb-5">"El mejor degradado de todo Puerto de Sagunto, sin discusión. Y encima buen tío."</p>
+            <div class="flex items-center gap-3">
+              <img src="/img/avatar-3.jpg" alt="Javier L." class="w-10 h-10 rounded-full object-cover" loading="lazy" />
+              <div>
+                <p class="text-sm font-bold text-[var(--color-black)]">Javier L.</p>
+                <p class="text-xs text-[var(--color-text)]">Cliente desde 2020</p>
+              </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ═══════════ RESERVAS / BOOKSY ═══════════ -->
-  <section id="reservar" class="py-20 md:py-28 px-6 bg-[var(--color-light)]">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="reveal">
-        <div class="section-label">
-          <span class="text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Citas</span>
+  <!-- Wave divider: nardo → white -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+
+  <!-- ═══════════ GALERÍA (05) ═══════════ -->
+  <section id="galeria" class="relative py-20 md:py-28 px-6 bg-white overflow-hidden">
+    <span class="section-number top-4 right-6">05</span>
+    <div class="deco-circle w-[280px] h-[280px] -bottom-32 left-10"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mx-auto">Portfolio</span>
+        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Nuestro <em>trabajo</em></h2>
+      </div>
+
+      <!-- Bento grid: 1 grande row-span-2, 2 medianas, 3 pequeñas -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 reveal-stagger" style="grid-auto-rows: 200px;">
+        <!-- Grande: row-span-2 -->
+        <div class="gallery-item md:row-span-2 rounded-xl overflow-hidden">
+          <img src="/img/gallery-1.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
+          <div class="gallery-curtain rounded-xl">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+          </div>
         </div>
-        <h2 class="font-display text-3xl md:text-5xl text-[var(--color-black)] font-bold mb-4">Reserva tu cita</h2>
+        <!-- Mediana 1 -->
+        <div class="gallery-item rounded-xl overflow-hidden">
+          <img src="/img/gallery-2.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
+          <div class="gallery-curtain rounded-xl">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+          </div>
+        </div>
+        <!-- Mediana 2 -->
+        <div class="gallery-item rounded-xl overflow-hidden">
+          <img src="/img/gallery-3.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
+          <div class="gallery-curtain rounded-xl">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+          </div>
+        </div>
+        <!-- Pequeña 1 -->
+        <div class="gallery-item rounded-xl overflow-hidden">
+          <img src="/img/gallery-4.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
+          <div class="gallery-curtain rounded-xl">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+          </div>
+        </div>
+        <!-- Pequeña 2 -->
+        <div class="gallery-item rounded-xl overflow-hidden">
+          <img src="/img/gallery-5.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
+          <div class="gallery-curtain rounded-xl">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+          </div>
+        </div>
+        <!-- Pequeña 3 -->
+        <div class="gallery-item rounded-xl overflow-hidden">
+          <img src="/img/gallery-6.jpg" alt="Trabajo de Ángel Huerta" class="w-full h-full object-cover" loading="lazy" />
+          <div class="gallery-curtain rounded-xl">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Line separator -->
+  <div class="line-separator max-w-6xl mx-auto"></div>
+
+
+  <!-- ═══════════ RESERVAS / BOOKSY (06) ═══════════ -->
+  <section id="reservar" class="relative py-20 md:py-28 px-6 bg-[var(--color-light)] overflow-hidden">
+    <span class="section-number top-4 left-6">06</span>
+    <div class="deco-circle w-[320px] h-[320px] -top-32 -right-20"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="reveal">
+        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mx-auto">Citas</span>
+        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Reserva tu <em>cita</em></h2>
         <p class="text-[var(--color-text)] text-lg max-w-lg mx-auto mb-10">Fácil, rápido y sin esperas</p>
       </div>
 
@@ -324,11 +442,11 @@ import Layout from '../layouts/Layout.astro';
       <div class="reveal">
         <p class="text-[var(--color-text)] text-sm mb-6">O si prefieres el trato directo:</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/34XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-[#20bd5a] transition-all shadow-md">
+          <a href="https://wa.me/34XXXXXXXXX" target="_blank" rel="noopener noreferrer" class="btn-shimmer inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold text-sm">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             WhatsApp
           </a>
-          <a href="tel:+34XXXXXXXXX" class="inline-flex items-center justify-center gap-3 bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm hover:bg-[var(--color-blue-dark)] transition-all shadow-md">
+          <a href="tel:+34XXXXXXXXX" class="btn-shimmer inline-flex items-center justify-center gap-3 bg-[var(--color-blue)] text-white px-8 py-4 rounded-full font-semibold text-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
             Llamar
           </a>
@@ -338,14 +456,23 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 
-  <!-- ═══════════ UBICACIÓN ═══════════ -->
-  <section id="contacto" class="py-20 md:py-28 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
+  <!-- Wave divider: light → white -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,20 C240,60 720,0 1200,40 C1360,50 1440,30 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+
+  <!-- ═══════════ UBICACIÓN (07) ═══════════ -->
+  <section id="contacto" class="relative py-20 md:py-28 px-6 bg-white overflow-hidden">
+    <span class="section-number top-4 right-6">07</span>
+    <div class="deco-circle w-[220px] h-[220px] top-40 -left-20"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
       <div class="text-center mb-14 reveal">
-        <div class="section-label">
-          <span class="text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest">Ubicación</span>
-        </div>
-        <h2 class="font-display text-3xl md:text-5xl text-[var(--color-black)] font-bold mb-4">Dónde encontrarnos</h2>
+        <span class="section-tag text-[var(--color-blue)] text-xs font-semibold uppercase tracking-widest mx-auto">Ubicación</span>
+        <h2 class="heading-xl text-3xl md:text-5xl mb-4">Dónde <em>encontrarnos</em></h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-10 items-start">
@@ -386,26 +513,70 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 
-  <!-- ═══════════ FOOTER ═══════════ -->
-  <footer class="py-12 px-6 bg-[var(--color-black)]">
+  <!-- ═══════════ FOOTER — 4 columnas ═══════════ -->
+  <footer class="py-16 px-6 bg-[var(--color-black)]">
     <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <!-- Col 1: Logo + tagline -->
         <div>
-          <a href="#" class="font-display text-xl font-bold text-white tracking-wide">ÁNGEL HUERTA</a>
-          <p class="text-white/40 text-sm mt-1">Barbería en Puerto de Sagunto</p>
+          <a href="#" class="flex items-center gap-2 mb-4">
+            <svg class="w-5 h-5 text-[var(--color-blue)] scissors-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M14.121 14.121A3 3 0 1 0 9.88 9.88M7.05 7.05l9.9 9.9M16.95 7.05l-9.9 9.9"/></svg>
+            <span class="font-display text-xl font-bold text-white tracking-wide">ÁNGEL HUERTA</span>
+          </a>
+          <p class="text-white/40 text-sm leading-relaxed">Barbería en Puerto de Sagunto, Valencia. Más de 40 años haciendo que cada cliente salga sintiéndose su mejor versión.</p>
         </div>
-        <div class="flex items-center gap-6">
-          <a href="#servicios" class="text-sm text-white/50 hover:text-white transition-colors">Servicios</a>
-          <a href="#sobre-mi" class="text-sm text-white/50 hover:text-white transition-colors">Sobre mí</a>
-          <a href="#galeria" class="text-sm text-white/50 hover:text-white transition-colors">Galería</a>
-          <a href="#contacto" class="text-sm text-white/50 hover:text-white transition-colors">Contacto</a>
+
+        <!-- Col 2: Links -->
+        <div>
+          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Enlaces</h4>
+          <ul class="space-y-3">
+            <li><a href="#servicios" class="footer-link text-sm text-white/50 inline-block">Servicios</a></li>
+            <li><a href="#sobre-mi" class="footer-link text-sm text-white/50 inline-block">Sobre mí</a></li>
+            <li><a href="#galeria" class="footer-link text-sm text-white/50 inline-block">Galería</a></li>
+            <li><a href="#testimonios" class="footer-link text-sm text-white/50 inline-block">Opiniones</a></li>
+            <li><a href="#contacto" class="footer-link text-sm text-white/50 inline-block">Contacto</a></li>
+          </ul>
         </div>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white/50 hover:text-white transition-colors">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </a>
+
+        <!-- Col 3: Horario -->
+        <div>
+          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Horario</h4>
+          <ul class="space-y-3 text-sm text-white/50">
+            <li class="flex justify-between"><span>Lunes – Viernes</span><span class="text-white/70">10:00 – 20:00</span></li>
+            <li class="flex justify-between"><span>Sábados</span><span class="text-white/70">10:00 – 14:00</span></li>
+            <li class="flex justify-between"><span>Domingos</span><span class="text-white/30">Cerrado</span></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Social -->
+        <div>
+          <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Síguenos</h4>
+          <div class="flex gap-4">
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon text-white/50 inline-block">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon text-white/50 inline-block">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-icon text-white/50 inline-block">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+          <div class="mt-6">
+            <a href="#reservar" class="btn-shimmer inline-flex items-center gap-2 bg-[var(--color-blue)] text-white px-6 py-2.5 rounded-full font-semibold text-sm">
+              Reservar Cita <span class="text-xs">→</span>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="mt-8 pt-8 border-t border-white/10 text-center">
-        <p class="text-white/30 text-xs">© 2026 Ángel Huerta — Barbería en Puerto de Sagunto. Todos los derechos reservados.</p>
+
+      <div class="line-separator mb-8"></div>
+
+      <div class="text-center">
+        <p class="text-white/30 text-xs">&copy; 2026 Ángel Huerta — Barbería en Puerto de Sagunto. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -438,11 +609,11 @@ import Layout from '../layouts/Layout.astro';
     l.addEventListener('click', () => document.getElementById('mobile-menu')?.classList.add('hidden'));
   });
 
-  // ── Scroll reveals ──
+  // ── Scroll reveals (includes reveal-stagger) ──
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger').forEach(el => io.observe(el));
 
   // ── Counter animation ──
   const counterIO = new IntersectionObserver((entries) => {
@@ -481,5 +652,16 @@ import Layout from '../layouts/Layout.astro';
     slider.addEventListener('touchstart', (e) => { dragging = true; move(e.touches[0].clientX); }, { passive: true });
     window.addEventListener('touchmove', (e) => { if (dragging) move(e.touches[0].clientX); });
     window.addEventListener('touchend', () => { dragging = false; });
+  }
+
+  // ── Hero parallax ──
+  const heroImg = document.querySelector('.hero-parallax') as HTMLElement;
+  if (heroImg) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroImg.style.transform = `translateY(${y * 0.3}px)`;
+      }
+    }, { passive: true });
   }
 </script>
