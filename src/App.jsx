@@ -82,10 +82,10 @@ const Navbar = () => {
           </a>
         </div>
 
-        <button className="md:hidden p-1" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden p-2 -mr-2 min-w-[48px] min-h-[48px] flex items-center justify-center" onClick={() => setIsOpen(!isOpen)}>
           {isOpen 
-            ? <CloseCircleBold className={scrolled ? 'text-slate-900' : 'text-white'} width={32} height={32} /> 
-            : <HamburgerMenuBold className={scrolled ? 'text-slate-900' : 'text-white'} width={32} height={32} />
+            ? <CloseCircleBold className={scrolled ? 'text-slate-900' : 'text-white'} width={40} height={40} /> 
+            : <HamburgerMenuBold className={scrolled ? 'text-slate-900' : 'text-white'} width={40} height={40} />
           }
         </button>
       </div>
