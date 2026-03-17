@@ -223,13 +223,8 @@ const Services = () => {
               </div>
               <h3 className="text-sm md:text-xl font-black text-slate-900 mb-1 md:mb-3 md:min-h-[56px] flex items-start">{service.title}</h3>
               <p className="text-slate-500 leading-relaxed font-medium text-xs md:text-sm flex-1 hidden md:block">{service.desc}</p>
-              <div className="flex items-center justify-between mt-3 md:mt-8 pt-3 md:pt-6 border-t border-slate-100">
-                <span className="text-xl md:text-4xl font-black text-slate-900">{service.price}</span>
-                <a href="#reservar">
-                    <button className="bg-slate-900 text-white p-2 md:p-4 rounded-full hover:translate-x-1 transition-transform">
-                      <AltArrowRightBold width={20} height={20} />
-                    </button>
-                </a>
+              <div className="flex items-center justify-end mt-3 md:mt-8 pt-3 md:pt-6 border-t border-slate-100">
+                <span className="text-xl md:text-4xl font-black text-amber-600">{service.price}</span>
               </div>
             </div>
           ))}
