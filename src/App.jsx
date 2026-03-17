@@ -486,7 +486,7 @@ const ContactSection = () => {
 
 // --- Footer ---
 const Footer = () => (
-  <footer className="bg-slate-950 text-white pt-12 md:pt-24 pb-24 md:pb-12 px-4 md:px-6">
+  <footer className="bg-slate-950 text-white pt-12 md:pt-24 pb-12 px-4 md:px-6">
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-12 border-b border-white/5 pb-8 md:pb-16 mb-6 md:mb-12 text-center md:text-left">
       <div>
         <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
@@ -533,7 +533,7 @@ const CookieBanner = () => {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
-        className="fixed bottom-28 md:bottom-24 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50"
+        className="fixed bottom-6 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50"
       >
         <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-6">
           <div className="flex items-start gap-3 mb-4">
@@ -617,7 +617,7 @@ const WhatsAppButton = () => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Contactar por WhatsApp"
-    className="fixed bottom-[6.5rem] md:bottom-6 right-6 z-[60] w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform"
+    className="fixed bottom-6 right-6 z-[60] w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform"
     initial={{ scale: 0, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ delay: 2, type: "spring", stiffness: 200 }}
@@ -639,7 +639,6 @@ export default function App() {
       <Footer />
       <WhatsAppButton />
       <CookieBanner />
-      <MobileTabBar />
     </div>
   );
 }
