@@ -203,15 +203,10 @@ const Services = () => {
     <section id="servicios" className="py-16 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="max-w-xl"
-          >
+          <div className="max-w-xl">
             <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">Servicios <br/>Exclusivos</h2>
             <p className="text-slate-500 text-lg border-l-4 border-amber-600 pl-6">Más de 40 años perfeccionando cada corte, cada navajado, cada detalle.</p>
-          </motion.div>
+          </div>
           <div className="hidden md:block text-slate-300 font-black text-9xl select-none opacity-20 translate-y-8">
             01
           </div>
@@ -219,14 +214,9 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -15 }}
-              className="group flex flex-col p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500"
+              className="group flex flex-col p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-4 transition-all duration-500"
             >
               <div className="w-20 h-20 bg-amber-600/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <span className="text-4xl">{service.icon}</span>
@@ -236,15 +226,12 @@ const Services = () => {
               <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
                 <span className="text-4xl font-black text-slate-900">{service.price}</span>
                 <a href="#reservar">
-                    <motion.button 
-                      whileHover={{ x: 5 }}
-                      className="bg-slate-900 text-white p-4 rounded-full"
-                    >
+                    <button className="bg-slate-900 text-white p-4 rounded-full hover:translate-x-1 transition-transform">
                       <AltArrowRightBold width={20} height={20} />
-                    </motion.button>
+                    </button>
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -264,24 +251,16 @@ const Gallery = () => {
   return (
     <section id="galeria" className="py-16 md:py-32 bg-slate-950 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-7xl font-black text-white mb-6"
-        >
+        <h2 className="text-5xl md:text-7xl font-black text-white mb-6">
           NUESTRA <span className="text-amber-500">GALERÍA</span>
-        </motion.h2>
+        </h2>
         <div className="w-24 h-1 bg-amber-600 mx-auto rounded-full mb-16" />
 
         {/* Desktop: grid | Mobile: horizontal scroll */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {images.map((img, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
               className="group relative h-[450px] rounded-3xl overflow-hidden cursor-pointer"
             >
               <img src={img.url} alt="Trabajo realizado" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
@@ -289,7 +268,7 @@ const Gallery = () => {
                 <span className="text-amber-500 font-black text-xs tracking-widest mb-2">{img.tag}</span>
                 <p className="text-white font-bold text-xl">Estilo Personalizado</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
         {/* Mobile: horizontal swipe gallery */}
@@ -325,26 +304,17 @@ const Testimonials = () => {
     <section className="py-16 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="max-w-xl"
-          >
+          <div className="max-w-xl">
             <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">Lo que dicen<br/>nuestros <span className="text-amber-500">clientes</span></h2>
             <p className="text-slate-500 text-lg border-l-4 border-amber-600 pl-6">5.0 ★ en Booksy · 103 reseñas verificadas</p>
-          </motion.div>
+          </div>
           <div className="hidden md:block text-slate-300 font-black text-9xl select-none opacity-20 translate-y-8">02</div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((review, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex gap-0.5 mb-4">
@@ -365,7 +335,7 @@ const Testimonials = () => {
                 </div>
                 <CheckCircleBold width={16} height={16} className="text-green-500" />
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -391,14 +361,10 @@ const BooksySection = () => {
           
           <div className="grid md:grid-cols-2 gap-0 relative z-10">
             <div className="p-10 md:p-20 flex flex-col justify-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="flex items-center gap-3 text-amber-500 mb-6"
-              >
+              <div className="flex items-center gap-3 text-amber-500 mb-6">
                 <div className="w-10 h-1 border-t-2 border-amber-500" />
                 <span className="text-xs font-black tracking-[0.3em] uppercase">Reserva Online</span>
-              </motion.div>
+              </div>
               
               <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight tracking-tighter">
                 Gestiona tu cita <br/>vía <span className="text-amber-500">Booksy.</span>
@@ -422,15 +388,14 @@ const BooksySection = () => {
                 ))}
               </div>
 
-              <motion.a 
+              <a 
                 href={booksyUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center justify-center gap-3 bg-amber-600 text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-amber-700 transition-all shadow-xl shadow-amber-900/40"
+                className="inline-flex items-center justify-center gap-3 bg-amber-600 text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-amber-700 hover:scale-105 transition-all shadow-xl shadow-amber-900/40"
               >
                 RESERVAR AHORA <LinkRoundBold width={20} height={20} />
-              </motion.a>
+              </a>
             </div>
 
             <div className="hidden md:flex items-center justify-center bg-slate-950/30 p-12">
@@ -463,11 +428,7 @@ const ContactSection = () => {
     <section id="contacto" className="py-16 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter">Visítanos en <br/><span className="text-amber-600 underline decoration-slate-900">Puerto de Sagunto.</span></h2>
             
             <div className="grid sm:grid-cols-2 gap-6 mt-12">
@@ -507,13 +468,9 @@ const ContactSection = () => {
                 <p className="text-slate-600 font-medium text-sm">WhatsApp: 656 40 90 27</p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="w-full h-[500px] lg:h-full min-h-[450px] rounded-[3rem] overflow-hidden border-8 border-slate-50 shadow-2xl bg-slate-100"
+          <div className="w-full h-[500px] lg:h-full min-h-[450px] rounded-[3rem] overflow-hidden border-8 border-slate-50 shadow-2xl bg-slate-100"
           >
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079!2d-0.2148211!3d39.6644058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6016102c78656d%3A0xf828d336b4847bc7!2sPeluquer%C3%ADa%20Barber%C3%ADa%20Caballeros%20Y%20Ni%C3%B1os%20%C3%81ngel%20Huerta!5e0!3m2!1ses!2ses!4v1" 
@@ -525,7 +482,7 @@ const ContactSection = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="Mapa de Ubicación"
             ></iframe>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -665,7 +622,7 @@ const WhatsAppButton = () => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Contactar por WhatsApp"
-    className="fixed bottom-[5.5rem] md:bottom-6 right-6 z-40 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform"
+    className="fixed bottom-[6.5rem] md:bottom-6 right-6 z-[60] w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform"
     initial={{ scale: 0, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ delay: 2, type: "spring", stiffness: 200 }}
