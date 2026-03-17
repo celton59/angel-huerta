@@ -427,13 +427,13 @@ const ContactSection = () => {
             <h2 className="text-3xl md:text-6xl font-black text-slate-900 mb-4 md:mb-8 tracking-tighter">Visítanos en <br/><span className="text-amber-600 underline decoration-slate-900">Puerto de Sagunto.</span></h2>
             
             <div className="grid grid-cols-2 gap-3 md:gap-6 mt-6 md:mt-12">
-              <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100">
+              <a href="https://maps.google.com/?q=Peluquería+Barbería+Ángel+Huerta,+C.+Sant+Vicent+31,+46520+Port+de+Sagunt" target="_blank" rel="noopener noreferrer" className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg hover:border-amber-200 transition-all block">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-600/10 text-amber-600 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6">
                   <MapPointBold width={20} height={20} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-1 md:mb-2 uppercase tracking-widest text-[10px] md:text-xs">Ubicación</h4>
                 <p className="text-slate-600 font-medium text-xs md:text-base">C. Sant Vicent, 31<br/>46520 Port de Sagunt</p>
-              </div>
+              </a>
 
               <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-600/10 text-amber-600 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6">
@@ -447,21 +447,21 @@ const ContactSection = () => {
                 </ul>
               </div>
 
-              <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100">
+              <a href="tel:+34656409027" className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg hover:border-amber-200 transition-all block">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-600/10 text-amber-600 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6">
                   <PhoneBold width={20} height={20} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-1 md:mb-2 uppercase tracking-widest text-[10px] md:text-xs">Llámanos</h4>
                 <p className="text-slate-600 font-bold text-sm md:text-lg">656 40 90 27</p>
-              </div>
+              </a>
 
-              <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-600/10 text-amber-600 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6">
-                  <LetterBold width={20} height={20} />
+              <a href="https://wa.me/34656409027?text=Hola%2C%20quer%C3%ADa%20pedir%20cita%20para%20la%20barber%C3%ADa" target="_blank" rel="noopener noreferrer" className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg hover:border-green-200 transition-all block">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-green-500/10 text-green-600 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6">
+                  <PhoneBold width={20} height={20} />
                 </div>
                 <h4 className="font-black text-slate-900 mb-1 md:mb-2 uppercase tracking-widest text-[10px] md:text-xs">WhatsApp</h4>
                 <p className="text-slate-600 font-medium text-xs md:text-sm">656 40 90 27</p>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -495,11 +495,15 @@ const Footer = () => (
         </div>
         <p className="text-slate-500 max-w-sm">Barbería profesional en Puerto de Sagunto. Tu estilo, nuestra pasión desde hace más de 40 años.</p>
       </div>
-      <div className="flex flex-col items-center md:items-end gap-6">
-        <div className="flex items-center gap-2 text-slate-500 text-xs font-bold tracking-widest uppercase">
+      <div className="flex flex-col items-center md:items-end gap-4">
+        <a href="https://maps.google.com/?q=Peluquería+Barbería+Ángel+Huerta,+C.+Sant+Vicent+31,+46520+Port+de+Sagunt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-500 text-xs font-bold tracking-widest uppercase hover:text-amber-500 transition-colors">
             <MapPointBold width={14} height={14} className="text-amber-500" />
             <span>PUERTO DE SAGUNTO, VALENCIA</span>
-        </div>
+        </a>
+        <a href="tel:+34656409027" className="flex items-center gap-2 text-slate-500 text-xs font-bold tracking-widest uppercase hover:text-amber-500 transition-colors">
+            <PhoneBold width={14} height={14} className="text-amber-500" />
+            <span>656 40 90 27</span>
+        </a>
       </div>
     </div>
     <div className="text-center text-slate-600 text-[10px] font-black tracking-[0.4em] uppercase">
