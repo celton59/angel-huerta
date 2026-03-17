@@ -82,10 +82,10 @@ const Navbar = () => {
           </a>
         </div>
 
-        <button className="md:hidden p-2 -mr-2 min-w-[48px] min-h-[48px] flex items-center justify-center" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden p-1 -mr-1 min-w-[56px] min-h-[56px] flex items-center justify-center" onClick={() => setIsOpen(!isOpen)}>
           {isOpen 
-            ? <CloseCircleBold className={scrolled ? 'text-slate-900' : 'text-white'} width={40} height={40} /> 
-            : <HamburgerMenuBold className={scrolled ? 'text-slate-900' : 'text-white'} width={40} height={40} />
+            ? <CloseCircleBold className={scrolled ? 'text-slate-900' : 'text-white'} width={48} height={48} /> 
+            : <HamburgerMenuBold className={scrolled ? 'text-slate-900' : 'text-white'} width={48} height={48} />
           }
         </button>
       </div>
@@ -503,7 +503,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="text-center text-slate-600 text-[10px] font-black tracking-[0.4em] uppercase">
-      © 2024 ÁNGEL HUERTA BARBER STUDIO.
+      © {new Date().getFullYear()} ÁNGEL HUERTA BARBER STUDIO.
     </div>
   </footer>
 );
@@ -628,7 +628,7 @@ const WhatsAppButton = () => (
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white selection:bg-amber-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 selection:bg-amber-500 selection:text-white">
       <Navbar />
       <Hero />
       <Services />
