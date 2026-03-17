@@ -82,10 +82,10 @@ const Navbar = () => {
           </a>
         </div>
 
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden p-1" onClick={() => setIsOpen(!isOpen)}>
           {isOpen 
-            ? <CloseCircleBold className={scrolled ? 'text-slate-900' : 'text-white'} width={24} height={24} /> 
-            : <HamburgerMenuBold className={scrolled ? 'text-slate-900' : 'text-white'} width={24} height={24} />
+            ? <CloseCircleBold className={scrolled ? 'text-slate-900' : 'text-white'} width={32} height={32} /> 
+            : <HamburgerMenuBold className={scrolled ? 'text-slate-900' : 'text-white'} width={32} height={32} />
           }
         </button>
       </div>
@@ -162,15 +162,15 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 items-center justify-center"
         >
-          <a href="#reservar">
-            <Button variant="primary" className="h-16 px-10 text-lg group">
+          <a href="#reservar" className="w-full sm:w-auto flex justify-center">
+            <Button variant="primary" className="h-16 px-10 text-lg group w-full sm:w-auto max-w-xs">
                 RESERVAR CITA <AltArrowRightBold width={20} height={20} className="group-hover:translate-x-1 transition-transform" />
             </Button>
           </a>
-          <a href="#servicios">
-            <Button variant="outline" className="h-16 px-10 text-lg border-white/20 text-white hover:bg-white/10">
+          <a href="#servicios" className="w-full sm:w-auto flex justify-center">
+            <Button variant="outline" className="h-16 px-10 text-lg border-white/20 text-white hover:bg-white/10 w-full sm:w-auto max-w-xs">
                 VER SERVICIOS
             </Button>
           </a>
@@ -665,7 +665,7 @@ const WhatsAppButton = () => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Contactar por WhatsApp"
-    className="fixed bottom-24 md:bottom-6 right-6 z-40 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform"
+    className="fixed bottom-[5.5rem] md:bottom-6 right-6 z-40 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform"
     initial={{ scale: 0, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ delay: 2, type: "spring", stiffness: 200 }}
