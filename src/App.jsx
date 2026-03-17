@@ -116,7 +116,7 @@ const Navbar = () => {
 // --- Hero Section ---
 const Hero = () => {
   return (
-    <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950">
+    <section id="inicio" className="relative h-[85vh] md:h-screen flex items-center justify-center overflow-hidden bg-slate-950">
       <div className="absolute inset-0 z-0">
         <motion.img 
           initial={{ scale: 1.2, opacity: 0 }}
@@ -134,7 +134,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-500 px-4 py-1 rounded-full text-xs font-black mb-8 tracking-[0.2em]"
+          className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-500 px-4 py-1 rounded-full text-xs font-black mb-4 md:mb-8 tracking-[0.2em]"
         >
           <StarFallBold width={14} height={14} /> MÁS DE 40 AÑOS DE OFICIO
         </motion.div>
@@ -143,7 +143,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-5xl md:text-9xl font-black text-white mb-6 md:mb-8 tracking-tighter leading-[0.9]"
+          className="text-4xl md:text-9xl font-black text-white mb-4 md:mb-8 tracking-tighter leading-[0.9]"
         >
           TU BARBERO <br /> 
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 italic font-serif">de Confianza.</span>
@@ -153,7 +153,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed"
+          className="text-base md:text-xl text-slate-300 mb-8 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed"
         >
           Cortes de precisión, afeitado clásico a navaja y el trato cercano de toda la vida. Puerto de Sagunto.
         </motion.p>
@@ -165,12 +165,12 @@ const Hero = () => {
           className="flex flex-col sm:flex-row gap-4 items-center justify-center"
         >
           <a href="#reservar" className="w-full sm:w-auto flex justify-center">
-            <Button variant="primary" className="h-16 px-10 text-lg group w-full sm:w-auto max-w-xs">
+            <Button variant="primary" className="h-12 md:h-16 px-8 md:px-10 text-base md:text-lg group w-full sm:w-auto max-w-xs">
                 RESERVAR CITA <AltArrowRightBold width={20} height={20} className="group-hover:translate-x-1 transition-transform" />
             </Button>
           </a>
           <a href="#servicios" className="w-full sm:w-auto flex justify-center">
-            <Button variant="outline" className="h-16 px-10 text-lg border-white/20 text-white hover:bg-white/10 w-full sm:w-auto max-w-xs">
+            <Button variant="outline" className="h-12 md:h-16 px-8 md:px-10 text-base md:text-lg border-white/20 text-white hover:bg-white/10 w-full sm:w-auto max-w-xs">
                 VER SERVICIOS
             </Button>
           </a>
@@ -200,33 +200,33 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicios" className="py-16 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
+    <section id="servicios" className="py-10 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-20">
           <div className="max-w-xl">
-            <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">Servicios <br/>Exclusivos</h2>
-            <p className="text-slate-500 text-lg border-l-4 border-amber-600 pl-6">Más de 40 años perfeccionando cada corte, cada navajado, cada detalle.</p>
+            <h2 className="text-3xl md:text-6xl font-black text-slate-900 mb-3 md:mb-6 tracking-tighter">Servicios <br/>Exclusivos</h2>
+            <p className="text-slate-500 text-sm md:text-lg border-l-4 border-amber-600 pl-4 md:pl-6">Más de 40 años perfeccionando cada corte, cada navajado, cada detalle.</p>
           </div>
           <div className="hidden md:block text-slate-300 font-black text-9xl select-none opacity-20 translate-y-8">
             01
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group flex flex-col p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-4 transition-all duration-500"
+              className="group flex flex-col p-4 md:p-10 rounded-2xl md:rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-4 transition-all duration-500"
             >
-              <div className="w-20 h-20 bg-amber-600/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                <span className="text-4xl">{service.icon}</span>
+              <div className="w-12 h-12 md:w-20 md:h-20 bg-amber-600/10 rounded-xl md:rounded-2xl flex items-center justify-center mb-3 md:mb-8 group-hover:scale-110 transition-transform">
+                <span className="text-2xl md:text-4xl">{service.icon}</span>
               </div>
-              <h3 className="text-xl font-black text-slate-900 mb-3 min-h-[56px] flex items-start">{service.title}</h3>
-              <p className="text-slate-500 leading-relaxed font-medium text-sm flex-1">{service.desc}</p>
-              <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
-                <span className="text-4xl font-black text-slate-900">{service.price}</span>
+              <h3 className="text-sm md:text-xl font-black text-slate-900 mb-1 md:mb-3 md:min-h-[56px] flex items-start">{service.title}</h3>
+              <p className="text-slate-500 leading-relaxed font-medium text-xs md:text-sm flex-1 hidden md:block">{service.desc}</p>
+              <div className="flex items-center justify-between mt-3 md:mt-8 pt-3 md:pt-6 border-t border-slate-100">
+                <span className="text-xl md:text-4xl font-black text-slate-900">{service.price}</span>
                 <a href="#reservar">
-                    <button className="bg-slate-900 text-white p-4 rounded-full hover:translate-x-1 transition-transform">
+                    <button className="bg-slate-900 text-white p-2 md:p-4 rounded-full hover:translate-x-1 transition-transform">
                       <AltArrowRightBold width={20} height={20} />
                     </button>
                 </a>
@@ -249,12 +249,12 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="galeria" className="py-16 md:py-32 bg-slate-950 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-5xl md:text-7xl font-black text-white mb-6">
+    <section id="galeria" className="py-10 md:py-32 bg-slate-950 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
+        <h2 className="text-3xl md:text-7xl font-black text-white mb-4 md:mb-6">
           NUESTRA <span className="text-amber-500">GALERÍA</span>
         </h2>
-        <div className="w-24 h-1 bg-amber-600 mx-auto rounded-full mb-16" />
+        <div className="w-16 md:w-24 h-1 bg-amber-600 mx-auto rounded-full mb-6 md:mb-16" />
 
         {/* Desktop: grid | Mobile: horizontal scroll */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -272,9 +272,9 @@ const Gallery = () => {
           ))}
         </div>
         {/* Mobile: horizontal swipe gallery */}
-        <div className="sm:hidden flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory px-2 -mx-2 pb-4">
+        <div className="sm:hidden flex gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory px-1 -mx-1 pb-4">
           {images.map((img, i) => (
-            <div key={i} className="snap-center shrink-0 w-[280px] h-[380px] rounded-2xl overflow-hidden relative">
+            <div key={i} className="snap-center shrink-0 w-[220px] h-[280px] rounded-2xl overflow-hidden relative">
               <img src={img.url} alt="Trabajo realizado" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent p-6 flex flex-col justify-end">
                 <span className="text-amber-500 font-black text-xs tracking-widest mb-1">{img.tag}</span>
@@ -301,28 +301,28 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-16 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20">
+    <section className="py-10 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 md:mb-20">
           <div className="max-w-xl">
-            <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">Lo que dicen<br/>nuestros <span className="text-amber-500">clientes</span></h2>
-            <p className="text-slate-500 text-lg border-l-4 border-amber-600 pl-6">5.0 ★ en Booksy · 103 reseñas verificadas</p>
+            <h2 className="text-3xl md:text-6xl font-black text-slate-900 mb-3 md:mb-6 tracking-tighter">Lo que dicen<br/>nuestros <span className="text-amber-500">clientes</span></h2>
+            <p className="text-slate-500 text-sm md:text-lg border-l-4 border-amber-600 pl-4 md:pl-6">5.0 ★ en Booksy · 103 reseñas verificadas</p>
           </div>
           <div className="hidden md:block text-slate-300 font-black text-9xl select-none opacity-20 translate-y-8">02</div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {reviews.map((review, i) => (
             <div
               key={i}
-              className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all duration-300"
+              className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all duration-300"
             >
-              <div className="flex gap-0.5 mb-4">
+              <div className="flex gap-0.5 mb-2 md:mb-4">
                 {[1,2,3,4,5].map(s => (
-                  <StarBold key={s} width={16} height={16} className="text-amber-400" />
+                  <StarBold key={s} width={14} height={14} className="text-amber-400" />
                 ))}
               </div>
-              <p className="text-slate-600 leading-relaxed mb-6 italic">"{review.text}"</p>
+              <p className="text-slate-600 leading-relaxed mb-3 md:mb-6 italic text-sm md:text-base">"{review.text}"</p>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-amber-600/10 rounded-full flex items-center justify-center text-amber-600 font-black text-sm">
@@ -354,27 +354,27 @@ const BooksySection = () => {
   const booksyUrl = "https://booksy.com/es-es/167979_barberia-y-peluqueria-caballero-y-ninos-angel-huerta_barberia_57248_playa-de-almarda"; 
 
   return (
-    <section id="reservar" className="py-16 md:py-32 bg-slate-50 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="bg-slate-900 rounded-[3rem] overflow-hidden shadow-2xl relative">
+    <section id="reservar" className="py-10 md:py-32 bg-slate-50 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="bg-slate-900 rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl relative">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-amber-600/10 skew-x-12 translate-x-1/4 pointer-events-none" />
           
           <div className="grid md:grid-cols-2 gap-0 relative z-10">
-            <div className="p-10 md:p-20 flex flex-col justify-center">
+            <div className="p-6 md:p-20 flex flex-col justify-center">
               <div className="flex items-center gap-3 text-amber-500 mb-6">
                 <div className="w-10 h-1 border-t-2 border-amber-500" />
                 <span className="text-xs font-black tracking-[0.3em] uppercase">Reserva Online</span>
               </div>
               
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight tracking-tighter">
+              <h2 className="text-2xl md:text-6xl font-black text-white mb-4 md:mb-8 leading-tight tracking-tighter">
                 Gestiona tu cita <br/>vía <span className="text-amber-500">Booksy.</span>
               </h2>
               
-              <p className="text-slate-400 text-lg mb-10 leading-relaxed">
+              <p className="text-slate-400 text-sm md:text-lg mb-6 md:mb-10 leading-relaxed">
                 Agenda tu visita en segundos: elige profesional, servicio y hora con confirmación al instante.
               </p>
 
-              <div className="space-y-4 mb-12">
+              <div className="space-y-2 md:space-y-4 mb-6 md:mb-12">
                 {[
                     "Disponibilidad real 24/7",
                     "Recordatorios automáticos",
@@ -392,7 +392,7 @@ const BooksySection = () => {
                 href={booksyUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-amber-600 text-white px-10 py-5 rounded-2xl font-black text-xl hover:bg-amber-700 hover:scale-105 transition-all shadow-xl shadow-amber-900/40"
+                className="inline-flex items-center justify-center gap-3 bg-amber-600 text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl font-black text-base md:text-xl hover:bg-amber-700 hover:scale-105 transition-all shadow-xl shadow-amber-900/40"
               >
                 RESERVAR AHORA <LinkRoundBold width={20} height={20} />
               </a>
@@ -425,52 +425,52 @@ const BooksySection = () => {
 // --- Sección de Contacto ---
 const ContactSection = () => {
   return (
-    <section id="contacto" className="py-16 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+    <section id="contacto" className="py-10 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-start">
           <div>
-            <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter">Visítanos en <br/><span className="text-amber-600 underline decoration-slate-900">Puerto de Sagunto.</span></h2>
+            <h2 className="text-3xl md:text-6xl font-black text-slate-900 mb-4 md:mb-8 tracking-tighter">Visítanos en <br/><span className="text-amber-600 underline decoration-slate-900">Puerto de Sagunto.</span></h2>
             
-            <div className="grid sm:grid-cols-2 gap-6 mt-12">
-              <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
-                <div className="w-12 h-12 bg-amber-600/10 text-amber-600 rounded-xl flex items-center justify-center mb-6">
-                  <MapPointBold width={24} height={24} />
+            <div className="grid grid-cols-2 gap-3 md:gap-6 mt-6 md:mt-12">
+              <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-600/10 text-amber-600 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6">
+                  <MapPointBold width={20} height={20} />
                 </div>
-                <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Ubicación</h4>
-                <p className="text-slate-600 font-medium">C. Sant Vicent, 31<br/>46520 Port de Sagunt, Valencia</p>
+                <h4 className="font-black text-slate-900 mb-1 md:mb-2 uppercase tracking-widest text-[10px] md:text-xs">Ubicación</h4>
+                <p className="text-slate-600 font-medium text-xs md:text-base">C. Sant Vicent, 31<br/>46520 Port de Sagunt</p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
-                <div className="w-12 h-12 bg-amber-600/10 text-amber-600 rounded-xl flex items-center justify-center mb-6">
-                  <ClockCircleBold width={24} height={24} />
+              <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-600/10 text-amber-600 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6">
+                  <ClockCircleBold width={20} height={20} />
                 </div>
-                <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Horario</h4>
-                <ul className="text-slate-600 font-medium text-sm space-y-1">
-                  <li>Mar - Vie: 10:00–14:00 / 17:00–20:00</li>
-                  <li>Sábados: 10:00–14:00</li>
-                  <li className="text-slate-400">Lun y Dom: Cerrado</li>
+                <h4 className="font-black text-slate-900 mb-1 md:mb-2 uppercase tracking-widest text-[10px] md:text-xs">Horario</h4>
+                <ul className="text-slate-600 font-medium text-[11px] md:text-sm space-y-0.5 md:space-y-1">
+                  <li>Mar-Vie: 10–14 / 17–20</li>
+                  <li>Sáb: 10–14</li>
+                  <li className="text-slate-400">Lun-Dom: Cerrado</li>
                 </ul>
               </div>
 
-              <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
-                <div className="w-12 h-12 bg-amber-600/10 text-amber-600 rounded-xl flex items-center justify-center mb-6">
-                  <PhoneBold width={24} height={24} />
+              <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-600/10 text-amber-600 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6">
+                  <PhoneBold width={20} height={20} />
                 </div>
-                <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Llámanos</h4>
-                <p className="text-slate-600 font-bold text-lg">656 40 90 27</p>
+                <h4 className="font-black text-slate-900 mb-1 md:mb-2 uppercase tracking-widest text-[10px] md:text-xs">Llámanos</h4>
+                <p className="text-slate-600 font-bold text-sm md:text-lg">656 40 90 27</p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
-                <div className="w-12 h-12 bg-amber-600/10 text-amber-600 rounded-xl flex items-center justify-center mb-6">
-                  <LetterBold width={24} height={24} />
+              <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-600/10 text-amber-600 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6">
+                  <LetterBold width={20} height={20} />
                 </div>
-                <h4 className="font-black text-slate-900 mb-2 uppercase tracking-widest text-xs">Email</h4>
-                <p className="text-slate-600 font-medium text-sm">WhatsApp: 656 40 90 27</p>
+                <h4 className="font-black text-slate-900 mb-1 md:mb-2 uppercase tracking-widest text-[10px] md:text-xs">WhatsApp</h4>
+                <p className="text-slate-600 font-medium text-xs md:text-sm">656 40 90 27</p>
               </div>
             </div>
           </div>
 
-          <div className="w-full h-[500px] lg:h-full min-h-[450px] rounded-[3rem] overflow-hidden border-8 border-slate-50 shadow-2xl bg-slate-100"
+          <div className="w-full h-[300px] lg:h-full min-h-[300px] md:min-h-[450px] rounded-2xl md:rounded-[3rem] overflow-hidden border-4 md:border-8 border-slate-50 shadow-2xl bg-slate-100"
           >
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079!2d-0.2148211!3d39.6644058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6016102c78656d%3A0xf828d336b4847bc7!2sPeluquer%C3%ADa%20Barber%C3%ADa%20Caballeros%20Y%20Ni%C3%B1os%20%C3%81ngel%20Huerta!5e0!3m2!1ses!2ses!4v1" 
@@ -491,8 +491,8 @@ const ContactSection = () => {
 
 // --- Footer ---
 const Footer = () => (
-  <footer className="bg-slate-950 text-white pt-24 pb-12 px-6">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 border-b border-white/5 pb-16 mb-12 text-center md:text-left">
+  <footer className="bg-slate-950 text-white pt-12 md:pt-24 pb-24 md:pb-12 px-4 md:px-6">
+    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-12 border-b border-white/5 pb-8 md:pb-16 mb-6 md:mb-12 text-center md:text-left">
       <div>
         <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
           <ScissorsBold className="text-amber-500" width={32} height={32} />
